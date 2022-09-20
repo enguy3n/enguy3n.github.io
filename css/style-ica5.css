@@ -8,13 +8,13 @@ html {
 
 body {
   margin: 0;
-  background: #ccc;
+  background: rgb(255, 255, 255);
 }
 
 article {
-  width: 210mm;
+  width: 212mm;
   height: 297mm;
-  margin: 20px auto;
+  margin: 10px auto;
   position: relative;
 }
 
@@ -36,6 +36,17 @@ h1 {
   padding: 44px 0;
   color: white;
   text-shadow: 1px 1px 1px black;
+  background-image: url("../img/ica5/logo.png");
+  filter: drop-shadow(3px 3px 5px black)
 }
 
 /* Your CSS below here */
+.top-img {
+  background-image: linear-gradient(rgb(159, 159, 159),white);
+  border-top: 5px solid red;  
+}
+
+.bottom-img {
+  border-bottom: 5px solid red;
+  background-image: linear-gradient(white,rgb(159,159,159));
+}
