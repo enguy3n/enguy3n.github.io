@@ -1,0 +1,86 @@
+/*custom fonts here -- sans serif specified later as a generic fallback font*/
+@import url('https://fonts.googleapis.com/css?family=Source Code Pro|Roboto|Nunito');
+
+html{
+    background-color: #20292bff;
+    font-family: 'Nunito', sans-serif;
+    color: #d5d3c6ff;
+}
+
+/*headings*/
+h1{
+    font-family: 'Source Code Pro', sans-serif;
+    color: #ffffffff;
+    font-size: 4.5rem;
+
+}
+h2{
+    font-family: 'Roboto', sans-serif;
+    color: #ff7b5dff;
+    font-size: 2.5rem;
+}
+h3{
+    font-family: 'Roboto', sans-serif;
+    color: #9fbfb3ff;
+    font-size: 2rem;
+}
+h4{
+    font-family: 'Roboto', sans-serif;
+    color: #ff7b5dff;
+    font-size: 1.6rem;
+}
+h5{
+    font-family: 'Roboto', sans-serif;
+    color: #9fbfb3ff;
+    font-size: 1.3rem;
+}
+h6{
+    font-family: 'Roboto', sans-serif;
+    color: #ff7b5dff;
+    font-size: 1rem;
+}
+
+/*text flare*/
+a:link{
+    color: #9fbfb3ff;
+    text-decoration: underline;
+}
+a:visited{
+    color: #ad564eff;
+    text-decoration: underline;
+}
+a:hover{
+    color: #ffffffff;
+    text-decoration: none;
+}
+a:active{
+    color: #ff7b5dff;
+    text-decoration: none;
+}
+ol{
+    list-style-type: none;
+    counter-reset: item;
+}
+ol li:before{
+    content: counter(item, upper-roman);
+    color: #ad564eff;
+    counter-increment: item;
+    position: absolute;
+    text-align: right;
+    margin-left: -1.5em;
+}
+
+ul{
+    list-style-type: none;
+    border-left: solid;
+    border-left-color: #ad564eff;
+    border-width: 3px;
+    padding-left: 1.6em;
+    margin: 1em;
+}
+
+/*button generics*/
+/*generic*/
+hr{
+    border: 1px solid #ad564eff;
+}
