@@ -6,9 +6,11 @@ html{
     background-color: #20292bff;
     font-family: 'Nunito', sans-serif;
     color: #d5d3c6ff;
+    padding-left: 1em;
 }
 body{
     margin: 1rem;
+    margin-bottom: 10rem;
 }
 
 /*headings*/
@@ -61,9 +63,11 @@ a:active{
     color: #ff7b5dff;
     text-decoration: none;
 }
+
 ol{
     list-style-type: none;
     counter-reset: item;
+    color: #ffffffff;
 }
 ol li:before{
     content: counter(item, upper-roman);
@@ -76,39 +80,97 @@ ol li:before{
 
 ul{
     list-style-type: none;
+    color: #ffffffff;
     border-left: solid;
     border-left-color: #ad564eff;
-    border-width: 3px;
+    border-width: 4px;
     padding-left: 1.6em;
     margin: 1em;
 }
 
 /*button generics*/
-/*the background colors of these buttons should never be seen
-unless loading issues loead to this.*/
-.button{
+a.button{
     position: absolute;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 75%;
+    margin-left: 1em;
+    padding: 1em;
+    background-color: rgb(59, 74, 77);
+    border-left: 5px solid #9fbfb3ff;
+    font-family: 'roboto', sans-serif;
+    font-size: 1em;
+}
+a.button:visited{
+    border-left: 5px solid #ad564eff;
+}
+a.button:hover{
+    background-color: rgb(181, 179, 165);
+    border-left: 5px solid #ffffffff;
+}
+a.button:active{
+    background-color: #9fbfb3ff;
+}
+
+a.button{
+    display: outer;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgb(59, 74, 77);
     width: 75%;
     margin-left: 1em;
-    padding-left: 1em;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 1em;
+    border-left: 5px solid #9fbfb3ff;
+
     font-family: 'roboto', sans-serif;
     font-size: 1em;
-    border-left: 5px solid #9fbfb3ff;
 }
-.button:hover{
+a.button:visited{
+    border-left: 5px solid #ad564eff;
+}
+a.button:hover{
     background-color: rgb(181, 179, 165);
     border-left: 5px solid #ffffffff;
 }
-/*debug this section*/
-.button:visited{
-    border-left: 5px solid #ad564eff;
+a.button:active{
+    background-color: #9fbfb3ff;
 }
 
 /*generic*/
 hr{
     border: 1px solid #ad564eff;
-    width: 90%;
+}
+br{
+    margin: 2rem;
+}
+
+/*page elements*/
+a.navbar{
+    background-color: rgb(0,0,0);
+    width: 100%;
+    height: 2rem;
+    position: fixed;
+    margin-top: -1rem;
+    margin-left: -2rem;
+    padding: 1rem;
+    padding-bottom: 0.75rem;
+    z-index:99;
+
+    color: rgb(255,255,255);
+    text-decoration: none;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.banner{
+    position: relative;
+    background-color: rgb(59, 74, 77);
+    max-width: 5000px;
+    height: 10rem;
+    margin-left: -2rem;
+
+    padding-left: 1rem;
+    padding-bottom: -5rem;
+    padding-top: 0.5rem;
 }
