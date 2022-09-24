@@ -122,11 +122,12 @@ a.button{
     margin-left: 1em;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    padding: 1em;
+    padding: 2em;
     border-left: 5px solid #9fbfb3ff;
 
     font-family: 'roboto', sans-serif;
     font-size: 1em;
+    text-decoration: none;
 }
 a.button:visited{
     border-left: 5px solid #ad564eff;
@@ -144,7 +145,7 @@ hr{
     border: 1px solid #ad564eff;
 }
 br{
-    margin: 2rem;
+    margin: 3rem;
 }
 
 /*page elements*/
@@ -170,6 +171,7 @@ a.navbar{
     max-width: 5000px;
     height: 10rem;
     margin-left: -2rem;
+    margin-bottom: 2rem;
 
     padding-left: 1rem;
     padding-bottom: -5rem;
