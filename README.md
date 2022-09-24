@@ -4,7 +4,7 @@ The code here is badly written, which means several conventions should be follow
 
 The following was last updated Sept 24, 2022.  
 
-## BUGS/NEED WORK  
+## BUGS/TO DO  
 
 - Button background images do not function; have been replaced by solid colors.  
 
@@ -13,6 +13,8 @@ The following was last updated Sept 24, 2022.
 - Heading banner does not extend full desired length.
 
 - Navbar may need stylistic work.  
+
+- Homepage decorative image is currently filler.
 
 ## HEAD  
 
