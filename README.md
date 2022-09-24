@@ -1,12 +1,56 @@
-## Ethan Nguyen - He/Him
-![portrait of self](./img/picture.png)
+# READ BEFORE EDITING FILES  
 
-Hello, my name is Ethan Nguyen.  I'm a CS major and CTD minor.
+The code here is badly written, which means several conventions should be followed to ensure proper formatting.  
 
-A lot of why I took this course is I'm interested in extending my abilities to work with computers.  I'm especially intersted in learning how I could potentially create websites for my own purpose, or to help others.  I'm also just curious.
+The following was last updated Sept 24, 2022.  
 
-I'm a 19-year-old sophomore.  I don't have a lot of hobbies but I enjoy gaming a bit, drawing, and spending time in the mountains.  I also like dinosaurs.
+## BUGS/NEED WORK  
 
-[Here's a video of a cat.](https://youtu.be/2JsYFB7-Ffg)
+- Button background images do not function; have been replaced by solid colors.  
 
-(This is a mimic of the website as of assignment 2.)
+- Heading banner backgroundi image also does not function; currently replaced by solid color.  
+
+- Heading banner does not extend full desired length.
+
+- Navbar may need stylistic work.  
+
+## HEAD  
+
+The following is the HTML head to every document.
+
+    <head>
+        <meta charset="utf-8">
+        <title>Test Page</title>
+        <link rel="stylesheet" href="css/main/main.css">
+    </head>
+
+## NAVBAR/BANNER
+
+At the top of every page is the navbar and the site banner, which should be included immediately after the head of the document. 
+
+The following is the navbar and nanner code (HTML; CSS pre-coded):  
+
+    <a class = "navbar" href = "https://enguy3n.github.io/index.html" alt = "home">
+        > HOME
+    </a>
+    <div class = "banner">
+        <h1>PAGE TITLE</h1>
+    </div>
+
+Copy/paste this.  
+
+## BUTTONS
+
+Linebreaks should be included after every button to ensure proper spacing.  
+
+    <a class = "button" href = "https://www.example.com/">
+        test button lol
+    </a>
+    <br>
+    <a class = "button" href = "https://www.example.com/">
+        test button2
+    </a>
+    <br>
+    <a class = "button" href = "https://www.example.com/">
+        test button3
+    </a>
