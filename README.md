@@ -37,7 +37,7 @@ The following is the navbar and nanner code (HTML; CSS pre-coded):
         <h1>PAGE TITLE</h1>
     </div>
 
-Copy/paste this.  
+This goes outside of the body.
 
 ## BUTTONS
 
