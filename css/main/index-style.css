@@ -4,3 +4,15 @@ img{
     width: 10rem;
     margin: 2rem;
 }
+
+@media only screen and (max-width: 600px){
+    img{
+        float: none;
+    }
+}
+
+@media only screen and (min-width: 601px){
+    img{
+        float: right;
+    }
+}

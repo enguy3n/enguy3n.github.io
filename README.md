@@ -6,11 +6,13 @@ The following was last updated Sept 24, 2022.
 
 ## BUGS/TO DO  
 
+- Looks weird in Chrome, but fine in Firefox.  Check other browsers.
+
 - Button background images do not function; have been replaced by solid colors.  
 
 - Heading banner backgroundi image also does not function; currently replaced by solid color.  
 
-- Heading banner does not extend full desired length.
+- Heading banner does not extend full desired length unless set at >100% which leads to weird scrolling.
 
 - Navbar may need stylistic work.  
 
@@ -28,13 +30,26 @@ The following is the HTML head to every document.
 
 ## NAVBAR/BANNER
 
-At the top of every page is the navbar and the site banner, which should be included immediately after the head of the document. 
+At the top of every page is the navbar and the site banner, which should be included immediately after the head of the document and outside the body. 
 
-The following is the navbar and nanner code (HTML; CSS pre-coded):  
+The following is the navbar and banner code (HTML; CSS pre-coded):  
 
-    <a class = "navbar" href = "https://enguy3n.github.io/index.html" alt = "home">
-        > HOME
-    </a>
+    <nav>
+        <ul>
+            <li>
+                <a href = "https://enguy3n.github.io/index.html" alt = "home">>HOME</a>
+            </li>
+            <li>
+                <a href = "https://enguy3n.github.io/about.html" alt = "about">•ABOUT</a>
+            </li>
+            <li>
+                <a href = "https://enguy3n.github.io/pages.html" alt = "projects and pages">•PROJECTS + PAGES</a>
+            </li>
+            <li>
+                <a href = "https://enguy3n.github.io/external-links.html" alt = "projects and pages">•EXTERNAL LINKS</a>
+            </li>
+        </ul>
+    </nav>
     <div class = "banner">
         <h1>PAGE TITLE</h1>
     </div>
