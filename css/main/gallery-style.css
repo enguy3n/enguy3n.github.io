@@ -1,0 +1,22 @@
+img{
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+br{
+    margin: 1rem;
+}
+
+.gallery{
+    width: 100%;
+}
+
+.gallery a{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-evenly;
+    flex: 1rem;
+    display: inline-block;
+}
