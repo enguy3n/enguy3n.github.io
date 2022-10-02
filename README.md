@@ -37,21 +37,21 @@ The following is the navbar and banner code (HTML; CSS pre-coded):
     <nav>
         <ul>
             <li>
-                <a href = "https://enguy3n.github.io/index.html" alt = "home">>HOME</a>
+                <a href = "https://enguy3n.github.io/index.html">>HOME</a>
             </li>
             <li>
-                <a href = "https://enguy3n.github.io/about.html" alt = "about">•ABOUT</a>
+                <a href = "https://enguy3n.github.io/about.html">•ABOUT</a>
             </li>
             <li>
-                <a href = "https://enguy3n.github.io/pages.html" alt = "projects and pages">•PROJECTS + PAGES</a>
+                <a href = "https://enguy3n.github.io/gallery.html">•GALLERY</a>
             </li>
             <li>
-                <a href = "https://enguy3n.github.io/external-links.html" alt = "projects and pages">•EXTERNAL LINKS</a>
+                <a href = "https://enguy3n.github.io/external-links.html">•EXTERNAL LINKS</a>
             </li>
         </ul>
     </nav>
     <div class = "banner">
-        <h1>PAGE TITLE</h1>
+        <p>PAGE NAME</p>
     </div>
 
 This goes outside of the body.
