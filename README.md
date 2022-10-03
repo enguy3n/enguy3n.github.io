@@ -6,17 +6,9 @@ The following was last updated Sept 24, 2022.
 
 ## BUGS/TO DO  
 
-- Looks weird in Chrome, but fine in Firefox.  Check other browsers.
-
 - Button background images do not function; have been replaced by solid colors.  
 
-- Heading banner backgroundi image also does not function; currently replaced by solid color.  
-
-- Heading banner does not extend full desired length unless set at >100% which leads to weird scrolling.
-
-- Navbar may need stylistic work.  
-
-- Homepage decorative image is currently filler.
+- Heading banner background image also does not function; currently replaced by solid color.  
 
 ## HEAD  
 
