@@ -113,9 +113,11 @@ a.button:visited{
 a.button:hover{
     background-color: rgb(181, 179, 165);
     border-left: 5px solid #ffffffff;
+    color: #ffffffff;
 }
 a.button:active{
     background-color: #9fbfb3ff;
+    color: #ff7b5dff;
 }
 
 /*generic*/
