@@ -127,6 +127,9 @@ hr{
 br{
     margin: 3rem;
 }
+figcaption{
+    color: #ffffffff;
+}
 
 /*page elements*/
 nav{

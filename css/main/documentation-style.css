@@ -1,0 +1,18 @@
+img{
+    width: 75%;
+    background-color: #ffffffff;
+}
+
+br{
+    width: 3em;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+}
+
+.grid img{
+    height: 100%;
+}
