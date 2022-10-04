@@ -38,12 +38,15 @@ The following is the navbar and banner code (HTML; CSS pre-coded):
                 <a href = "https://enguy3n.github.io/gallery.html">•GALLERY</a>
             </li>
             <li>
-                <a href = "https://enguy3n.github.io/external-links.html">•EXTERNAL LINKS</a>
+                <a href = "https://enguy3n.github.io/external-links.html">•LINKS</a>
             </li>
         </ul>
     </nav>
     <div class = "banner">
-        <p>PAGE NAME</p>
+        <img class = "header-bg" src = "https://enguy3n.github.io/img/buttons/header.jpg" alt = "background">
+        <div class = "header-txt">
+            <p>DOCUMENTATION</p>
+        </div>
     </div>
 
 This goes outside of the body.
