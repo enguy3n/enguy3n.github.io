@@ -96,6 +96,7 @@ a.button{
     border-bottom-right-radius: 10px;
     background-color: rgb(59, 74, 77);
     width: 75%;
+    height: 1em;
     margin-left: 1em;
     margin-bottom: 3rem;
     margin-top: 1rem;
