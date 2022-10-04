@@ -169,29 +169,54 @@ nav ul a:active{
 
 .banner{
     position: relative;
+    overflow: hidden;
     background-color: rgb(59, 74, 77);
     width: 105%;
     height: 10rem;
     margin-left: -2rem;
     margin-bottom: 2rem;
+    padding: 0px;
 }
+
+.banner img{
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    object-fit: fill;
+    position: relative;
+    margin-left: 0px;
+}
+
+.banner .header-txt{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 300%;
+}
+
 
 @media only screen and (min-width:401px){
     .banner{
-        padding-left: 1rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
         font-family: 'Source Code Pro', sans-serif;
         color: #ffffffff;
         font-size: 4.5rem;
     }
+    .banner .header-txt{
+        top: 3px;
+    }
 }
 
 @media only screen and (max-width:600px){
     .banner{
-        padding-top: 5rem;
+        /* padding-top: 5rem; */
+        width: 150%;
         font-family: 'Source Code Pro', sans-serif;
         color: #ffffffff;
         font-size: 3rem;
+    }
+    .banner .header-txt{
+        top: 50px;
     }
 }
