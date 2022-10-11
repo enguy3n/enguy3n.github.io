@@ -28,3 +28,7 @@ div.button:active{
     /* background-color: #9fbfb3ff; */
     color: #ff7b5dff;
 }
+
+br{
+    margin: 1em;
+}
