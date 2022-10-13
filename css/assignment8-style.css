@@ -1,0 +1,19 @@
+label {
+  font-weight: bold;  
+}
+
+div {
+  padding-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  width: 150px;
+}
+
+p {
+  background: rgb(59, 74, 77);
+  color: #d5d3c6ff;
+  padding: 10px;
+  visibility: hidden;
+}
