@@ -59,12 +59,31 @@ class Ball{
       this.x += this.velocityX;
       this.y += this.velocityY;
     }
+
+    detectCollision(){
+      for(const ball of balls){
+        if(this != ball){
+          const distanceX = this.x - ball.x;
+          const distanceY = this.y - ball.y;
+          const distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+
+          if(distance < (this.size + ball.size)){
+            ball.color = this.color = randomRGB();
+            this.velocityX *= -1;
+            this.velocityY *= -1;
+
+            ball.velocityX *= -1;
+            ball.velocityY *= -1;
+          }
+        }
+      }
+    }
 }
 
 // create balls
 const balls = [];
 
-while(balls.length < 25){
+while(balls.length < 50){
   const size = random(10,20);
   const ball = new Ball(
     random(0 + size, width - size),
@@ -86,6 +105,7 @@ function loop(){
   for(const ball of balls){
     ball.draw();
     ball.update();
+    ball.detectCollision();
   }
 
   // run function recursively
