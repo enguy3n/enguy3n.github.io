@@ -1,0 +1,30 @@
+.html{
+    white-space: pre-line;
+}
+.generatedContent{
+    display: table-cell;
+    margin: 50px;
+    margin-left: 1rem;
+    background-color: rgb(59, 74, 77);
+    padding: 5em;
+    border-radius: 10px;
+    vertical-align: middle;
+    width: 1000px;
+    overflow: hidden;
+}
+
+.generatorButton{
+    display: table-cell;
+    margin: 5px;
+    background-color: rgb(59, 74, 77);
+    padding: 1em;
+    color: #d5d3c6ff;
+}
+
+.generatorButton: hover{
+    color: #ff7b5df;
+}
+
+br{
+    margin: 1rem;
+}
