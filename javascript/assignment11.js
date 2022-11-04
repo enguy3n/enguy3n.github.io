@@ -7,32 +7,36 @@ let inputValue = document.getElementById('numberPicker');
 generatorButton.addEventListener('click', generateContent);
 
 // APIs
-const apiSrc = 'https://meowfacts.herokuapp.com/';
+let baseAPISrc = 'https://meowfacts.herokuapp.com/';
 
 async function generateContent(){
     console.log('registed click to generator button');
 
     // retrieve desired number of cat facts
     let numberOfFacts = inputValue.value;
+    if(numberOfFacts < 1){
+        numberOfFacts = 1;
+    }
     console.log("desired fact count: ",numberOfFacts);
 
+    //update number of values being grabbed
+    let apiSrc = baseAPISrc + '?count=' + numberOfFacts;
+    console.log(apiSrc);
     let retrievedData = "";
+    
     let i = 0;
-    //loop lol
+ 
+    // fetch data
+    let text = await fetch(apiSrc);
+    let response = await text.text();
+    console.log(response);
+    let jsonResponse =JSON.parse(response);
+    
+    // update content text
     do{
-        // fetch JSON
-        let text = await fetch(apiSrc);
-        let response = await text.text();
-        console.log(response);
-
-        // parse JSON
-        let jsonResponse = JSON.parse(response);
-        retrievedData = retrievedData + "\r\n" + jsonResponse.data[0];
-        console.log(retrievedData);
-        
+        retrievedData = retrievedData + '\r\n\n' + jsonResponse.data[i];
         i++;
     }while(i < numberOfFacts);
-    // call to update text content
     
     updateText(retrievedData);
 }
