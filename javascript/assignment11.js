@@ -16,6 +16,8 @@ async function generateContent(){
     let numberOfFacts = inputValue.value;
     if(numberOfFacts < 1){
         numberOfFacts = 1;
+    }else if(numberOfFacts > 96){
+        numberOfFacts = 96; // maximum API can handle
     }
     console.log("desired fact count: ",numberOfFacts);
 
