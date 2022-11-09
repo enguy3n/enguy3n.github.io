@@ -1,0 +1,26 @@
+html{
+    text-align: center;
+    color: white;
+    background-color: rgb(62, 62, 62);
+    font-family: lucida console, monospace;
+}
+
+/* .numberContent{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 3fr 1fr 4fr;
+} */
+
+.parenLeft, .areaCode, .parenRight, .firstThree, .hyphen, .finalDigits{
+    display: inline;
+}
+
+input[type = 'button']{
+    font-family: lucida console, monospace;
+    background-color: rgb(155, 155, 155);
+}
+
+.verification{
+    white-space: pre;
+    color: rgb(113, 195, 95);
+    font-size: 0.7rem;
+}
