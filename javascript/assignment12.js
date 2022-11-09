@@ -39,7 +39,7 @@ function modifyAreaCode(){
         areaCode.textContent = newValue;
     }else{
         reset();
-        alert('area code ' + newValue + ' is not a valid area code.');
+        alert('area code ' + newValue + ' is not a valid area code.  your number has been reset.');
     }
 }
 
@@ -58,7 +58,7 @@ function modifyMid(){
         midDigits.textContent = newValue.toString().padStart(3, '0');
     }else{
         reset();
-        alert('digits ' + newValue + ' cannot fit here.');
+        alert('digits ' + newValue + ' cannot fit here.  your number has been reset.');
     }
 }
 
@@ -77,5 +77,4 @@ function submit(){
 // causes submission text to disapepar when any button is pressed
 function resetSubmission(){
     verification.textContent = '';
-    
 }

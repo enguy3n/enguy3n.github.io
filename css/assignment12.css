@@ -14,15 +14,21 @@ html{
     display: inline;
 }
 
+.explanationText{
+    display: inline;
+    font-size: 0.5rem;
+    color: rgb(195, 195, 195);
+}
+
 input[type = 'button']{
     font-family: lucida console, monospace;
     background-color: rgb(139, 137, 137);
 }
 
 .verification{
-    white-space: pre;
-    color: rgb(113, 195, 95);
     font-size: 0.7rem;
+    display: inline;
+    color: rgb(113, 195, 95);
 }
 
 /* .wrapper{
