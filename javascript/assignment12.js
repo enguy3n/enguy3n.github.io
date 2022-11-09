@@ -6,9 +6,11 @@ const verification = document.querySelector('.verification');
 
 // input selectors
 const areaCodeSelector = document.querySelector('.areaCodeButton');
+const midDigitsSelector = document.querySelector('.middleDigitsButton');
 const submitSelector = document.querySelector('.submitButton');
 
 areaCodeSelector.addEventListener('click', modifyAreaCode);
+midDigitsSelector.addEventListener('click', modifyMid);
 submitSelector.addEventListener('click', submit);
 
 function reset(){
@@ -26,8 +28,10 @@ function reset(){
 function modifyAreaCode(){
     console.log('modifying area code');
 
+    resetSubmission();
+
     let min = 0;
-    let max = 3000;
+    let max = 1500;
     let newValue = Math.floor(Math.random() * (max - min) + min);
     console.log('area code: got value: ', newValue);
 
@@ -39,6 +43,25 @@ function modifyAreaCode(){
     }
 }
 
+function modifyMid(){
+    console.log('modifying mid three');
+
+    resetSubmission();
+
+    let min = 0;
+    let max = 1500;
+
+    let newValue = Math.floor(Math.random() * (max - min) + min);
+    console.log('mid: got value: ', newValue);
+
+    if(newValue >= 0 && newValue < 1000){
+        midDigits.textContent = newValue.toString().padStart(3, '0');
+    }else{
+        reset();
+        alert('digits ' + newValue + ' cannot fit here.');
+    }
+}
+
 function submit(){
     console.log('submit pressed');
 
@@ -47,4 +70,12 @@ function submit(){
                    + ')' + midDigits.textContent
                    + '-' + lastDigits.textContent + '.';
     verification.textContent = stringContent;
+
+    reset();
+}
+
+// causes submission text to disapepar when any button is pressed
+function resetSubmission(){
+    verification.textContent = '';
+    
 }

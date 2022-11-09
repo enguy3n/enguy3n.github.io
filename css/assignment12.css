@@ -16,7 +16,7 @@ html{
 
 input[type = 'button']{
     font-family: lucida console, monospace;
-    background-color: rgb(155, 155, 155);
+    background-color: rgb(139, 137, 137);
 }
 
 .verification{
@@ -24,3 +24,18 @@ input[type = 'button']{
     color: rgb(113, 195, 95);
     font-size: 0.7rem;
 }
+
+/* .wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.numberContent{
+    padding: 20px;
+    min-width: 25%;
+    background-color: rgb(83, 83, 83);
+    border-radius: 10px;
+    border: 1px solid rgb(103, 103, 103);
+} */
