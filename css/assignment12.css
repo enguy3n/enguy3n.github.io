@@ -31,6 +31,9 @@ input[type = 'button']{
     color: rgb(113, 195, 95);
 }
 
+.verticalFiller{
+    margin: 2rem;
+}
 /* .wrapper{
     display: grid;
     grid-template-columns: 1fr;
