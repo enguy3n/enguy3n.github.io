@@ -25,6 +25,11 @@ input[type = 'button']{
     background-color: rgb(139, 137, 137);
 }
 
+input[type = 'text']{
+    font-family: lucida console, monospace;
+    font-size: 0.7rem;
+}
+
 .verification{
     font-size: 0.7rem;
     display: inline;
@@ -34,6 +39,50 @@ input[type = 'button']{
 .verticalFiller{
     margin: 2rem;
 }
+
+.passInstruction{
+    font-size: 0.7rem;
+    margin: 1rem;
+}
+
+.passWrapper{
+    display: none;
+   background-color: rgb(46, 46, 46); 
+   border-radius: 10px;
+   max-width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
+
+.passPhrase{
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    margin: 1rem;
+    font-size: 0.5rem;
+}
+
+.submitPass{
+    display: inline;
+}
+
+.generateLastDigits{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback{
+    color:rgb(197, 51, 51);
+    font-size: 0.7rem;
+    margin: 1rem;
+}
+
 /* .wrapper{
     display: grid;
     grid-template-columns: 1fr;
