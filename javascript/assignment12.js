@@ -7,12 +7,15 @@ const verification = document.querySelector('.verification');
 // input selectors
 const areaCodeSelector = document.querySelector('.areaCodeButton');
 const midDigitsSelector = document.querySelector('.middleDigitsButton');
+const lastDigitsSelector = document.querySelector('.lastDigitsButton');
 const submitSelector = document.querySelector('.submitButton');
 
 areaCodeSelector.addEventListener('click', modifyAreaCode);
 midDigitsSelector.addEventListener('click', modifyMid);
+lastDigitsSelector.addEventListener('click', modifyLast);
 submitSelector.addEventListener('click', submit);
 
+// resets number back to (000)000-0000
 function reset(){
     const defaultVal = 0;
     areaCode.textContent = defaultVal.toString().padStart(3, '0');
@@ -23,6 +26,11 @@ function reset(){
     // areaCode.textContent = 123;
     // midDigits.textContent = 123;
     // lastDigits.textContent = 1234;
+}
+
+// causes submission text to disapepar when any button is pressed
+function resetSubmission(){
+    verification.textContent = '';
 }
 
 function modifyAreaCode(){
@@ -62,6 +70,12 @@ function modifyMid(){
     }
 }
 
+function modifyLast(){
+    console.log('modifying last digits');
+
+    resetSubmission();
+}
+
 function submit(){
     console.log('submit pressed');
 
@@ -72,9 +86,4 @@ function submit(){
     verification.textContent = stringContent;
 
     reset();
-}
-
-// causes submission text to disapepar when any button is pressed
-function resetSubmission(){
-    verification.textContent = '';
 }
