@@ -91,7 +91,7 @@ function generateFinal(){
     resetSubmission();
 
     let min = 0;
-    let max = 20000;
+    let max = 10800;
 
     let newValue = Math.floor(Math.random() * (max - min) + min);
     console.log('final: got value: ', newValue);
