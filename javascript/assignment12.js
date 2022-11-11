@@ -125,20 +125,26 @@ function generatePassPhrase(){
     let passPhrase = '';
     for(let i = 0; i < 25; i++){
         // choose whether this value is a number or letter
-        let charType = Math.floor(Math.random() * (10-0) + 0);
+        let charType = Math.floor(Math.random() * (30-0) + 0);
 
-        if(charType % 2 === 0){
+        if(charType % 3 === 0){
             // number
             let newValue = Math.floor(Math.random() * (58 - 48) + 48);
             newValue = String.fromCharCode(newValue);
             passPhrase += newValue;
-        }else{
-            // letter
+
+        }else if(charType % 3 === 1){
+            // letter: lowercase
             let newValue = Math.floor(Math.random() * (123 - 97) + 97);
-            console.log(newValue);
+            newValue = String.fromCharCode(newValue);
+            passPhrase += newValue;
+        }else{
+            // letter: uppercase
+            let newValue = Math.floor(Math.random() * (91 - 65) + 65);
             newValue = String.fromCharCode(newValue);
             passPhrase += newValue;
         }
+
         console.log(passPhrase);
     }
 
@@ -173,7 +179,7 @@ function submit(){
     resetPassBox();
 }
 
-// causes submission text to disapepar when any button is pressed
+// causes submission text to disappear when any button is pressed
 function resetSubmission(){
     verification.textContent = '';
 }
