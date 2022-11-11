@@ -116,6 +116,7 @@ function callFinal(){
 function openPassBox(){
     console.log('pass box triggered');
     passBox.style.display = 'block';
+    userInput.value = ''; // blank on opening
 
     generatePassPhrase();
 }
