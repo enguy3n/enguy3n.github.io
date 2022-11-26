@@ -162,7 +162,7 @@ nav ul a:visited{
     color: rgb(255,255,255);
 }
 nav ul a:hover{
-    color: rgb(255,255,255);
+    color: #ff7b5dff;
 }
 nav ul a:active{
     color: rgb(255,255,255);
