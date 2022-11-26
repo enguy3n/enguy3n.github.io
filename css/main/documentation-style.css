@@ -1,18 +1,19 @@
+/* not used */
 figure a img{
     width: 75%;
     background-color: #ffffffff;
 }
 
-br{
+.documentation-br{
     width: 3em;
 }
 
-.grid{
+.grid-documentation{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3px;
 }
 
-.grid img{
+.grid-documentation img{
     height: 100%;
 }

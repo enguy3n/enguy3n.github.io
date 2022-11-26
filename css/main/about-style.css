@@ -1,16 +1,17 @@
-img{
+/* removed */
+.about-decoration{
     border-radius: 100%;
 }
 
 @media only screen and (max-width: 700px){
-    img{
+    .about-decoration{
         height: 12rem;
         width: 12rem;
     }
 }
 
 @media only screen and (min-width: 701px){
-    .grid{
+    .grid-about{
         display: grid;
         grid-template-columns: 1.25fr 0.75fr;
     }
