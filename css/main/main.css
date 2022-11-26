@@ -358,6 +358,7 @@ a:link .img-subtxt,a:hover .img-subtxt,a:visited .img-subtxt,a:active .img-subtx
 .pages-grid{
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .pages-container {
