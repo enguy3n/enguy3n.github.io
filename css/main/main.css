@@ -310,3 +310,47 @@ figure a img{
 .grid-documentation img{
     height: 100%;
 }
+
+/* pages */
+.pages-imgs a img{
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.pages-imgs{
+    width: 100%;
+    font-size: 0rem;
+}
+
+.pages-imgs a{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-evenly;
+    flex: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0rem;
+}
+/* link, hover,  visited, active */
+a:link .img-txt,a:hover .img-txt,a:visited .img-txt,a:active .img-txt{
+    color: #ffffffff;
+    font-size: 1.5rem;
+    position: relative;
+    top: -7rem;
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: 0rem;
+    padding: 0rem;
+}
+
+a:link .img-subtxt,a:hover .img-subtxt,a:visited .img-subtxt,a:active .img-subtxt{
+    color: #ffffffff;
+    position: relative;
+    font-size: 0.7rem;
+    top: -5rem;
+    background-color: rgba(0,0,0,0.5);
+    margin: 0rem;
+    padding: 0rem;
+}
