@@ -415,3 +415,12 @@ a:link .img-subtxt,a:hover .img-subtxt,a:visited .img-subtxt,a:active .img-subtx
     font-family: 'Nunito', sans-serif;
     width: 100%
 }
+
+/* game */
+.gridRow {
+    border: 1px solid black;
+}
+
+.gridCell {
+    border: 1px solid black;
+}
