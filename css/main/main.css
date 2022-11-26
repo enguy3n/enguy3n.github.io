@@ -312,7 +312,7 @@ figure a img{
 }
 
 /* pages */
-.pages-imgs a img{
+/* .pages-imgs a img{
     width: 20rem;
     height: 20rem;
     object-fit: cover;
@@ -333,9 +333,9 @@ figure a img{
     text-decoration: none;
     text-align: center;
     font-size: 0rem;
-}
+} */
 /* link, hover,  visited, active */
-a:link .img-txt,a:hover .img-txt,a:visited .img-txt,a:active .img-txt{
+/* a:link .img-txt,a:hover .img-txt,a:visited .img-txt,a:active .img-txt{
     color: #ffffffff;
     font-size: 1.5rem;
     position: relative;
@@ -353,4 +353,64 @@ a:link .img-subtxt,a:hover .img-subtxt,a:visited .img-subtxt,a:active .img-subtx
     background-color: rgba(0,0,0,0.5);
     margin: 0rem;
     padding: 0rem;
+} */
+
+.pages-grid{
+    display: flex;
+    gap: 5px;
+}
+
+.pages-container {
+    position: relative;
+    width: 20rem;
+}
+
+.thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.pages-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20rem;
+    width: 20rem;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+}
+
+.pages-container:hover .pages-overlay {
+    opacity: 0.7;
+}
+
+.pages-text1{
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.pages-text2{
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    width: 100%
 }
