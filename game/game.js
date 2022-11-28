@@ -3,6 +3,8 @@
 // https://stackoverflow.com/questions/47743629/input-checkbox-checked-by-default
 // https://stackoverflow.com/questions/19068070/how-to-style-a-div-to-be-a-responsive-square
 // https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
+// https://www.w3schools.com/howto/howto_js_rangeslider.asp
+// https://css-tricks.com/converting-color-spaces-in-javascript/
 
 const height = 15;
 const width = 15;
@@ -10,6 +12,35 @@ const width = 15;
 let activeColor = 'red';
 
 const container = document.getElementById("canvasContainer");
+
+// current color value storage
+let red = 'red';
+let orange = 'orange';
+let yellow = 'yellow';
+let green = 'green';
+let blue = 'blue';
+let purple = 'purple';
+let brown = 'brown';
+let black = 'black';
+let white = 'white';
+
+// sliders for custom color selectors
+let customRed = 0;
+let customGreen = 0;
+let customBlue = 0;
+
+let redSlider = document.getElementById('redSlider');
+redSlider.oninput = function(){
+  updateCustomColor('red', redSlider.value);
+};
+let greenSlider = document.getElementById('greenSlider');
+greenSlider.oninput = function(){
+  updateCustomColor('green', greenSlider.value);
+};
+let blueSlider = document.getElementById('blueSlider');
+blueSlider.oninput = function(){
+  updateCustomColor('blue', blueSlider.value);
+};
 
 // color thumb selectors
 const redSelector = document.getElementById('redContainer');
@@ -21,16 +52,21 @@ const purpleSelector = document.getElementById('purpleContainer');
 const brownSelector = document.getElementById('brownContainer');
 const blackSelector = document.getElementById('blackContainer');
 const whiteSelector = document.getElementById('whiteContainer');
+const customSelector = document.getElementById('customContainer');
+const customPreview = document.getElementById('customPreview');
 
-redSelector.addEventListener('click', ()=>colorSelection(redSelector, 'red'));
-orangeSelector.addEventListener('click', ()=>colorSelection(orangeSelector, 'orange'));
-yellowSelector.addEventListener('click', ()=>colorSelection(yellowSelector, 'yellow'));
-greenSelector.addEventListener('click', ()=>colorSelection(greenSelector, 'green'));
-blueSelector.addEventListener('click', ()=>colorSelection(blueSelector, 'blue'));
-purpleSelector.addEventListener('click', ()=>colorSelection(purpleSelector, 'purple'));
-brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, 'brown'));
-blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, 'black'));
-whiteSelector.addEventListener('click', ()=>colorSelection(whiteSelector, 'white'));
+let customColor = customPreview.style.backgroundColor;
+
+redSelector.addEventListener('click', ()=>colorSelection(redSelector, red));
+orangeSelector.addEventListener('click', ()=>colorSelection(orangeSelector, orange));
+yellowSelector.addEventListener('click', ()=>colorSelection(yellowSelector, yellow));
+greenSelector.addEventListener('click', ()=>colorSelection(greenSelector, green));
+blueSelector.addEventListener('click', ()=>colorSelection(blueSelector, blue));
+purpleSelector.addEventListener('click', ()=>colorSelection(purpleSelector, purple));
+brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, brown));
+blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, black));
+whiteSelector.addEventListener('click', ()=>colorSelection(whiteSelector, white));
+customSelector.addEventListener('click', ()=>colorSelection(customSelector, customColor));
 
 let previousColorText = redSelector;
 
@@ -69,10 +105,45 @@ function colorSelection(colorSelector, color){
   previousColorText = colorSelector;
 }
 
+function updateCustomColor(channel, value){
+  if(channel === 'red'){
+    console.log('updating red:' + value);
+    customRed = value;
+
+  }else if(channel == 'green'){
+    console.log('updating green:' + value);
+    customGreen = value;
+  }else{
+    console.log('updating blue:' + value);
+    customBlue = value;
+  }
+
+  let newColor = RGBToHexA(customRed,customGreen,customBlue);
+  console.log(newColor);
+  customColor = newColor;
+  customPreview.style.backgroundColor = newColor;
+}
+
 // MISC -----------------------------------------------
 function testFunction(){
   console.log('registered');
 }
+
+function RGBToHexA(r,g,b) {
+  r = r.toString(16);
+  g = g.toString(16);
+  b = b.toString(16);
+
+  if (r.length == 1)
+    r = "0" + r;
+  if (g.length == 1)
+    g = "0" + g;
+  if (b.length == 1)
+    b = "0" + b;
+
+  return "#" + r + g + b;
+}
+
 
 redSelector.style.fontWeight = 'bold'; // initialize red to be active color
 
