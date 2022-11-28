@@ -54,9 +54,23 @@
                 </div>
             </div>
             <div>
-                <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "redSlider">
-                <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "greenSlider">
-                <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "blueSlider">
+                <div id = "slidersContainer">
+                    <div class = "RGBSliderContainer">
+                        <div class = "sliderName">R</div>
+                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "redSlider">
+                        <div class = "sliderValue" id = "redValue">123</div> 
+                    </div>
+                    <div class = "RGBSliderContainer">
+                        <div class = "sliderName">G</div>
+                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "greenSlider">
+                        <div class = "sliderValue" id = "greenValue">12</div>
+                    </div>
+                    <div class = "RGBSliderContainer">
+                        <div class = "sliderName">B</div>
+                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "blueSlider">
+                        <div class = "sliderValue" id = "blueValue">1</div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

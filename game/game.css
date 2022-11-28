@@ -21,9 +21,8 @@ html{
 }
 
 .generalContainer{
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  gap: 50px;
 }
 
 #canvasContainer {
@@ -126,4 +125,14 @@ br{
   background-color: black;
   width: 30px;
   height: 30px;
+}
+
+#slidersContainer{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.RGBSliderContainer{
+  display: inline-flex;
+  gap: 10px;
 }
