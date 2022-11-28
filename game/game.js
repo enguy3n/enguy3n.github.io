@@ -3,8 +3,8 @@
 // https://stackoverflow.com/questions/47743629/input-checkbox-checked-by-default
 // https://stackoverflow.com/questions/19068070/how-to-style-a-div-to-be-a-responsive-square
 
-const height = 10;
-const width = 10;
+const height = 15;
+const width = 15;
 
 let activeColor = 'red';
 
@@ -12,14 +12,24 @@ const container = document.getElementById("canvasContainer");
 
 // color thumb selectors
 const redSelector = document.getElementById('redContainer');
-const redText = document.getElementById('redText');
 const orangeSelector = document.getElementById('orangeContainer');
-const orangeText = document.getElementById('orangeText');
+const yellowSelector = document.getElementById('yellowContainer');
+const greenSelector = document.getElementById('greenContainer');
+const blueSelector = document.getElementById('blueContainer');
+const purpleSelector = document.getElementById('purpleContainer');
+const brownSelector = document.getElementById('brownContainer');
+const blackSelector = document.getElementById('blackContainer');
 
-redSelector.addEventListener('click', ()=>colorSelection(redText, 'red'));
-orangeSelector.addEventListener('click', ()=>colorSelection(orangeText, 'orange'));
+redSelector.addEventListener('click', ()=>colorSelection(redSelector, 'red'));
+orangeSelector.addEventListener('click', ()=>colorSelection(orangeSelector, 'orange'));
+yellowSelector.addEventListener('click', ()=>colorSelection(yellowSelector, 'yellow'));
+greenSelector.addEventListener('click', ()=>colorSelection(greenSelector, 'green'));
+blueSelector.addEventListener('click', ()=>colorSelection(blueSelector, 'blue'));
+purpleSelector.addEventListener('click', ()=>colorSelection(purpleSelector, 'purple'));
+brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, 'brown'));
+blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, 'black'));
 
-let previousColorText = redText;
+let previousColorText = redSelector;
 
 // MANIPULATE CANVAS -------------------------------------
 
@@ -43,25 +53,24 @@ function makeRows(rows, cols) {
 }
 
 // COLOR SELECTORS -------------------------------------------------
-function colorSelection(colorTextName, color){
+function colorSelection(colorSelector, color){
   console.log('color:' + color);
   // change text to  show user which color is active
   previousColorText.style.fontWeight = 'normal';
-  colorTextName.style.fontWeight = 'bold';
+  colorSelector.style.fontWeight = 'bold';
 
   // update active color
   activeColor = color;
 
   // update previous color selector
-  previousColorText = colorTextName;
+  previousColorText = colorSelector;
 }
-
 
 // MISC -----------------------------------------------
 function testFunction(){
   console.log('registered');
 }
 
-redText.style.fontWeight = 'bold'; // initialize red to be active color
+redSelector.style.fontWeight = 'bold'; // initialize red to be active color
 
 makeRows(height, width);

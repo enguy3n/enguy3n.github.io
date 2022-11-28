@@ -2,6 +2,11 @@
 
 html{
   font-family: 'Source Code Pro', sans-serif;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 :root {
@@ -10,8 +15,14 @@ html{
   width: 50%;
   text-align: center; */
   position: absolute;
-  left: 25%;
-  top: 25%;
+  left: 10%;
+  top: 10%;
+}
+
+.generalContainer{
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #canvasContainer {
@@ -31,10 +42,9 @@ html{
   border: 1px solid #ddd;
 }
 
-.generalContainer{
+#UIContainer{
   display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 br{
@@ -64,6 +74,49 @@ br{
 
 #orangePreview{
   background-color: orange;
+  width: 30px;
+  height: 30px;
+}
+
+#yellowPreview{
+  background-color: yellow;
+  width: 30px;
+  height: 30px;
+}
+
+#greenPreview{
+  background-color: green;
+  width: 30px;
+  height: 30px;
+}
+
+#bluePreview{
+  background-color: blue;
+  width: 30px;
+  height: 30px;
+}
+
+#purplePreview{
+  background-color: purple;
+  width: 30px;
+  height: 30px;
+}
+
+#brownPreview{
+  background-color: brown;
+  width: 30px;
+  height: 30px;
+}
+
+#blackPreview{
+  background-color: black;
+  width: 30px;
+  height: 30px;
+}
+
+#customPreview{
+  background-color: white;
+  border: 1px solid #ddd;
   width: 30px;
   height: 30px;
 }
