@@ -2,6 +2,7 @@
 // https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
 // https://stackoverflow.com/questions/47743629/input-checkbox-checked-by-default
 // https://stackoverflow.com/questions/19068070/how-to-style-a-div-to-be-a-responsive-square
+// https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
 
 const height = 15;
 const width = 15;
@@ -19,6 +20,7 @@ const blueSelector = document.getElementById('blueContainer');
 const purpleSelector = document.getElementById('purpleContainer');
 const brownSelector = document.getElementById('brownContainer');
 const blackSelector = document.getElementById('blackContainer');
+const whiteSelector = document.getElementById('whiteContainer');
 
 redSelector.addEventListener('click', ()=>colorSelection(redSelector, 'red'));
 orangeSelector.addEventListener('click', ()=>colorSelection(orangeSelector, 'orange'));
@@ -28,6 +30,7 @@ blueSelector.addEventListener('click', ()=>colorSelection(blueSelector, 'blue'))
 purpleSelector.addEventListener('click', ()=>colorSelection(purpleSelector, 'purple'));
 brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, 'brown'));
 blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, 'black'));
+whiteSelector.addEventListener('click', ()=>colorSelection(whiteSelector, 'white'));
 
 let previousColorText = redSelector;
 
