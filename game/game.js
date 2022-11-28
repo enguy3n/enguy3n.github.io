@@ -5,6 +5,7 @@
 // https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
 // https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // https://css-tricks.com/converting-color-spaces-in-javascript/
+// https://clarle.github.io/yui3/yui/docs/color/rgb-slider.html
 
 const height = 15;
 const width = 15;
@@ -31,15 +32,15 @@ let customBlue = 0;
 
 let redSlider = document.getElementById('redSlider');
 redSlider.oninput = function(){
-  updateCustomColor('red', redSlider.value);
+  updateCustomColor('red', redSlider.valueAsNumber);
 };
 let greenSlider = document.getElementById('greenSlider');
 greenSlider.oninput = function(){
-  updateCustomColor('green', greenSlider.value);
+  updateCustomColor('green', greenSlider.valueAsNumber);
 };
 let blueSlider = document.getElementById('blueSlider');
 blueSlider.oninput = function(){
-  updateCustomColor('blue', blueSlider.value);
+  updateCustomColor('blue', blueSlider.valueAsNumber);
 };
 
 // color thumb selectors
@@ -66,14 +67,14 @@ purpleSelector.addEventListener('click', ()=>colorSelection(purpleSelector, purp
 brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, brown));
 blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, black));
 whiteSelector.addEventListener('click', ()=>colorSelection(whiteSelector, white));
-customSelector.addEventListener('click', ()=>colorSelection(customSelector, customColor));
+customSelector.addEventListener('click', ()=>colorSelection(customSelector, customPreview.style.backgroundColor));
 
 let previousColorText = redSelector;
 
 // MANIPULATE CANVAS -------------------------------------
 
 function changePixelColor(cell, activeColor){
-  console.log('changing pixel color');
+  console.log('changing pixel color: ' + activeColor);
 
 	cell.style.backgroundColor = activeColor;
 }
