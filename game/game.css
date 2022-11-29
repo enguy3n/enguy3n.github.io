@@ -20,6 +20,24 @@ html{
   top: 10%;
 }
 
+.button{
+  margin-right: 3px;
+  font-family: 'Source Code Pro', sans-serif;
+  cursor: pointer;
+}
+
+.buttonContainer{
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+#menuBar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin-bottom: 1rem;
+}
+
 .generalContainer{
   display: flex;
   gap: 50px;
@@ -33,14 +51,14 @@ html{
   grid-gap: 0;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  border: 1px solid #ddd;
+  border: 0.5px solid #ddd;
   background-color: white;
 }
 
 .gridItem {
   padding: 1em;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 0.5px solid #ddd;
 }
 
 .gridItem:hover{

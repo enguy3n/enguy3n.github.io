@@ -1,16 +1,17 @@
 // https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript
 // https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
-// https://stackoverflow.com/questions/47743629/input-checkbox-checked-by-default
 // https://stackoverflow.com/questions/19068070/how-to-style-a-div-to-be-a-responsive-square
 // https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
 // https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // https://css-tricks.com/converting-color-spaces-in-javascript/
+// https://stackoverflow.com/questions/3349332/getelementsbyclassname-not-working
 
 const height = 15;
 const width = 15;
 
 let activeColor = 'red';
 
+const html = document.getElementsByTagName('html')[0];
 const container = document.getElementById("canvasContainer");
 
 // current color value storage
@@ -90,7 +91,7 @@ function makeRows(rows, cols) {
 
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
+  for (let i = 0; i < (rows * cols); i++) {
     let cell = document.createElement("div");
     // cell.innerText = (c + 1);
     container.appendChild(cell).className = "gridItem";
@@ -132,12 +133,72 @@ function updateCustomColor(channel, value){
 }
 
 // UI -------------------------------------------------
+
 function updateSliderText(sliderText, value){
   console.log('updating slider value');
   sliderText.textContent = value;
 }
 
+redSelector.style.fontWeight = 'bold'; // initialize red to be active color
+
+makeRows(height, width);
+
+// TOGGLE GRID -------------------------------------
+
+let gridToggled = true; // default show grid
+
+const pixels = document.getElementsByClassName('gridItem');
+const toggleGridButton = document.getElementById('gridToggle');
+
+toggleGridButton.addEventListener('click', toggleGrid);
+
+function toggleGrid(){
+  console.log('registered grid toggle');
+  if(gridToggled){
+    toggleGridButton.value = '0';
+
+    Array.from(pixels).forEach((element) => element.style.border = 'none');
+    gridToggled = false;
+  
+  }else{
+    toggleGridButton.value = '1';
+
+    Array.from(pixels).forEach((element) => element.style.border = '0.5px solid #ddd');
+    gridToggled = true;
+  }
+}
+
+// TOGGLE NIGHT MODE ----------------------------------
+
+let nightModeActive = false;
+
+const nightModeButton = document.getElementById('UIMode');
+nightModeButton.addEventListener('click', toggleNightMode);
+
+function toggleNightMode(){
+  console.log('toggling night mode');
+
+  if(!nightModeActive){
+    console.log('night mode was inactive');
+    nightModeActive = true;
+    
+    html.style.backgroundColor = 'rgb(80, 80, 80)';
+    html.style.color = 'rgb(247, 247, 247)';
+    nightModeButton.value = '☾'
+  
+  }else{
+    console.log('night mode was active');
+    nightModeActive = false;
+
+    html.style.backgroundColor = 'rgb(247, 247, 247)';
+    html.style.color = black;
+    nightModeButton.value = '☼';
+  }
+
+}
+
 // MISC -----------------------------------------------
+
 function testFunction(){
   console.log('registered');
 }
@@ -147,17 +208,12 @@ function RGBToHexA(red,green,blue) {
   green = green.toString(16);
   blue = blue.toString(16);
 
-  if (red.length == 1)
+  if (red.length === 1)
     red = "0" + red;
-  if (green.length == 1)
+  if (green.length === 1)
     green = "0" + green;
-  if (blue.length == 1)
+  if (blue.length === 1)
     blue = "0" + blue;
 
   return "#" + red + green + blue;
 }
-
-
-redSelector.style.fontWeight = 'bold'; // initialize red to be active color
-
-makeRows(height, width);
