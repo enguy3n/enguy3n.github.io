@@ -43,6 +43,10 @@ html{
   border: 1px solid #ddd;
 }
 
+.gridItem:hover{
+  cursor: crosshair;
+}
+
 #UIContainer{
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -60,6 +64,10 @@ br{
   grid-gap: 3px;
   grid-template-columns: 1fr 6fr;
   width: 75%;
+}
+
+.colorContainer:hover{
+  cursor: pointer;
 }
 
 .colorDescriptor{
@@ -127,12 +135,59 @@ br{
   height: 30px;
 }
 
+/* SLIDERS */
+
 #slidersContainer{
   display: grid;
+  grid-gap: 3px;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .RGBSliderContainer{
   display: inline-flex;
   gap: 10px;
+}
+
+.slider {
+  /* width: 100%; */
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity 0.2s;
+  border: 1px solid rgb(199, 199, 199);
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+/* mozilla */
+.slider::-moz-range-thumb {
+  width: 5px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+#redSlider{
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+#greenSlider{
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,255,0,1) 100%);
+}
+
+#blueSlider{
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,255,1) 100%);
 }

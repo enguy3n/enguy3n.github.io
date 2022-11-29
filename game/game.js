@@ -5,7 +5,6 @@
 // https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
 // https://www.w3schools.com/howto/howto_js_rangeslider.asp
 // https://css-tricks.com/converting-color-spaces-in-javascript/
-// https://clarle.github.io/yui3/yui/docs/color/rgb-slider.html
 
 const height = 15;
 const width = 15;
@@ -30,17 +29,24 @@ let customRed = 0;
 let customGreen = 0;
 let customBlue = 0;
 
+let redSliderValue = document.getElementById('redValue');
+let greenSliderValue = document.getElementById('greenValue');
+let blueSliderValue = document.getElementById('blueValue');
+
 let redSlider = document.getElementById('redSlider');
 redSlider.oninput = function(){
   updateCustomColor('red', redSlider.valueAsNumber);
+  updateSliderText(redSliderValue, redSlider.value);
 };
 let greenSlider = document.getElementById('greenSlider');
 greenSlider.oninput = function(){
   updateCustomColor('green', greenSlider.valueAsNumber);
+  updateSliderText(greenSliderValue, greenSlider.value);
 };
 let blueSlider = document.getElementById('blueSlider');
 blueSlider.oninput = function(){
   updateCustomColor('blue', blueSlider.valueAsNumber);
+  updateSliderText(blueSliderValue, blueSlider.value);
 };
 
 // color thumb selectors
@@ -125,24 +131,30 @@ function updateCustomColor(channel, value){
   customPreview.style.backgroundColor = newColor;
 }
 
+// UI -------------------------------------------------
+function updateSliderText(sliderText, value){
+  console.log('updating slider value');
+  sliderText.textContent = value;
+}
+
 // MISC -----------------------------------------------
 function testFunction(){
   console.log('registered');
 }
 
-function RGBToHexA(r,g,b) {
-  r = r.toString(16);
-  g = g.toString(16);
-  b = b.toString(16);
+function RGBToHexA(red,green,blue) {
+  red = red.toString(16);
+  green = green.toString(16);
+  blue = blue.toString(16);
 
-  if (r.length == 1)
-    r = "0" + r;
-  if (g.length == 1)
-    g = "0" + g;
-  if (b.length == 1)
-    b = "0" + b;
+  if (red.length == 1)
+    red = "0" + red;
+  if (green.length == 1)
+    green = "0" + green;
+  if (blue.length == 1)
+    blue = "0" + blue;
 
-  return "#" + r + g + b;
+  return "#" + red + green + blue;
 }
 
 
