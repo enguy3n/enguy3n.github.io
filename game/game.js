@@ -10,6 +10,7 @@ const height = 15;
 const width = 15;
 
 let activeColor = 'red';
+const activeColorPreview = document.getElementById('activeColorPreview');
 
 const html = document.getElementsByTagName('html')[0];
 const container = document.getElementById("canvasContainer");
@@ -78,6 +79,9 @@ customSelector.addEventListener('click', ()=>colorSelection(customSelector, cust
 
 let previousColorText = redSelector;
 
+const bgColorButton = document.getElementById('setBGColor');
+bgColorButton.addEventListener('click', changeBGColor);
+
 // MANIPULATE CANVAS -------------------------------------
 
 function changePixelColor(cell, activeColor){
@@ -86,17 +90,10 @@ function changePixelColor(cell, activeColor){
 	cell.style.backgroundColor = activeColor;
 }
 
-function makeRows(rows, cols) {
-  console.log('generating canvas');
+function changeBGColor(){
+  console.log('adjusting background color:' + activeColor);
 
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (let i = 0; i < (rows * cols); i++) {
-    let cell = document.createElement("div");
-    // cell.innerText = (c + 1);
-    container.appendChild(cell).className = "gridItem";
-    cell.addEventListener('click', ()=>changePixelColor(cell, activeColor));
-  }
+  container.style.backgroundColor = activeColor;
 }
 
 // COLOR SELECTORS -------------------------------------------------
@@ -108,6 +105,7 @@ function colorSelection(colorSelector, color){
 
   // update active color
   activeColor = color;
+  activeColorPreview.style.backgroundColor = color;
 
   // update previous color selector
   previousColorText = colorSelector;
@@ -137,9 +135,23 @@ function updateCustomColor(channel, value){
 function updateSliderText(sliderText, value){
   console.log('updating slider value');
   sliderText.textContent = value;
+  customSelector.style.fontWeight = 'normal'; // unselect "custom color" when sliders are wiggled
 }
 
 redSelector.style.fontWeight = 'bold'; // initialize red to be active color
+
+function makeRows(rows, cols) {
+  console.log('generating canvas');
+
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (let i = 0; i < (rows * cols); i++) {
+    let cell = document.createElement("div");
+    // cell.innerText = (c + 1);
+    container.appendChild(cell).className = "gridItem";
+    cell.addEventListener('click', ()=>changePixelColor(cell, activeColor));
+  }
+}
 
 makeRows(height, width);
 
@@ -172,8 +184,13 @@ function toggleGrid(){
 
 let nightModeActive = false;
 
+const allSliders = document.getElementsByClassName('slider');
+const allButtons = document.getElementsByClassName('button');
+
 const nightModeButton = document.getElementById('UIMode');
 nightModeButton.addEventListener('click', toggleNightMode);
+
+const buttonFontSize = nightModeButton.style.fontSize;
 
 function toggleNightMode(){
   console.log('toggling night mode');
@@ -182,9 +199,14 @@ function toggleNightMode(){
     console.log('night mode was inactive');
     nightModeActive = true;
     
-    html.style.backgroundColor = 'rgb(80, 80, 80)';
-    html.style.color = 'rgb(247, 247, 247)';
+    html.style.backgroundColor = 'rgb(62, 56, 56)';
+    html.style.color = 'rgb(223, 214, 208)';
     nightModeButton.value = '☾'
+    nightModeButton.style.fontSize = '0.6rem';
+
+    Array.from(allSliders).forEach((element) => element.style.border = '0.5px solid black');
+    Array.from(allButtons).forEach((element)=>element.style.backgroundColor = 'rgb(52, 43, 57)');
+    Array.from(allButtons).forEach((element)=>element.style.color = 'rgb(223, 214, 208)');
   
   }else{
     console.log('night mode was active');
@@ -193,8 +215,12 @@ function toggleNightMode(){
     html.style.backgroundColor = 'rgb(247, 247, 247)';
     html.style.color = black;
     nightModeButton.value = '☼';
-  }
+    nightModeButton.style.fontSize = buttonFontSize;
 
+    Array.from(allSliders).forEach((element) => element.style.border = '0.5px solid #ddd');
+    Array.from(allButtons).forEach((element)=>element.style.backgroundColor = 'white');
+    Array.from(allButtons).forEach((element)=>element.style.color = 'black');
+  }
 }
 
 // MISC -----------------------------------------------

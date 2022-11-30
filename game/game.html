@@ -9,13 +9,14 @@
     </head>
     <body>
         <div id = "menuBar">
-            <div class = "buttonContainer">
+            <div id = "activeColorPreview"></div>
+            <div class = "menuContainer">
                 <input type = "button" class = "button" id = "gridToggle" value = "1">
-                <div>toggle grid</div>
+                <div>TOGGLE GRID</div>
             </div>
-            <div class = "buttonContainer">
+            <div class = "menuContainer">
                 <input type = "button" class = "button" id = "UIMode" value = "☼">
-                <div>toggle night mode</div>
+                <div>TOGGLE NIGHT MODE</div>
             </div>
         </div>
         <div class = "generalContainer">
@@ -62,24 +63,28 @@
                     <div class = "colorDescriptor" id = "customText">custom</div>
                 </div>
             </div>
-            <div>
-                <div id = "slidersContainer">
-                    <div class = "boxDescription">custom color selector</div>
+            <div id = "sideUI">
+                <div class = "sideUIContainer" id = "slidersContainer">
+                    <div class = "boxDescription">CUSTOM COLOR SELECTOR</div>
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">R</div>
-                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "redSlider">
+                        <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "redSlider">
                         <div class = "sliderValue" id = "redValue">0</div> 
                     </div>
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">G</div>
-                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "greenSlider">
+                        <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "greenSlider">
                         <div class = "sliderValue" id = "greenValue">0</div>
                     </div>
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">B</div>
-                        <input type = "range" min = "0" max = "255", value = "0" class = "slider" id = "blueSlider">
+                        <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "blueSlider">
                         <div class = "sliderValue" id = "blueValue">0</div>
                     </div>
+                </div>
+                <div class = "sideUIContainer" id = "canvasOptions">
+                    <div class = "boxDescription">CANVAS OPTIONS</div>
+                    <input type = "button" class = "button" id = "setBGColor" value = "set active color as bg">
                 </div>
             </div>
         </div>

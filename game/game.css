@@ -20,14 +20,22 @@ html{
   top: 10%;
 }
 
+#activeColorPreview{
+  background-color: red;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
 .button{
   margin-right: 3px;
   font-family: 'Source Code Pro', sans-serif;
   cursor: pointer;
+  background-color: white;
 }
 
-.buttonContainer{
+.menuContainer{
   display: grid;
+  grid-gap: 5px;
   grid-template-columns: 1fr 7fr;
 }
 
@@ -90,7 +98,8 @@ br{
 
 .colorDescriptor{
   display: table-cell;
-  padding-top: 5px;
+  padding-top: 8px;
+  font-size: 0.7rem;
 }
 
 #redPreview{
@@ -153,6 +162,15 @@ br{
   height: 30px;
 }
 
+/* GENERAL SIDE UI */
+.sideUIContainer{
+  padding-bottom: 3rem;
+}
+
+.boxDescription{
+  padding-bottom: 3px;
+}
+
 /* SLIDERS */
 
 #slidersContainer{
@@ -171,14 +189,9 @@ br{
   height: 10px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity 0.2s;
-  border: 1px solid rgb(199, 199, 199);
-}
-
-.slider:hover {
-  opacity: 1;
+  border: 0.5px solid #ddd;
 }
 
 .slider::-webkit-slider-thumb {
