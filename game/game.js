@@ -63,6 +63,7 @@ const blackSelector = document.getElementById('blackContainer');
 const whiteSelector = document.getElementById('whiteContainer');
 const customSelector = document.getElementById('customContainer');
 const customPreview = document.getElementById('customPreview');
+const eraserSelector = document.getElementById('eraserContainer');
 
 let customColor = customPreview.style.backgroundColor;
 
@@ -76,6 +77,7 @@ brownSelector.addEventListener('click', ()=>colorSelection(brownSelector, brown)
 blackSelector.addEventListener('click', ()=>colorSelection(blackSelector, black));
 whiteSelector.addEventListener('click', ()=>colorSelection(whiteSelector, white));
 customSelector.addEventListener('click', ()=>colorSelection(customSelector, customPreview.style.backgroundColor));
+eraserSelector.addEventListener('click', ()=>colorSelection(eraserSelector, 'transparent'));
 
 let previousColorText = redSelector;
 
