@@ -48,7 +48,8 @@ html{
 
 .generalContainer{
   display: flex;
-  gap: 50px;
+  gap: 20px;
+  width: 90%;
 }
 
 #canvasContainer {
@@ -151,6 +152,10 @@ br{
   text-align: center;padding-top: 5px;
 }
 
+#eyedropperPreview{
+  text-align: center;padding-top: 5px;
+}
+
 /* GENERAL SIDE UI */
 .sideUIContainer{
   padding-bottom: 2rem;
@@ -223,5 +228,5 @@ br{
 .historyItem{
   width: 30px;
   height: 30px;
-  cursor: pointer;
+  cursor: var(--historyCursor);
 }

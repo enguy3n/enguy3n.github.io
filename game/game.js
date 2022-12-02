@@ -6,8 +6,8 @@
 // https://css-tricks.com/converting-color-spaces-in-javascript/
 // https://stackoverflow.com/questions/3349332/getelementsbyclassname-not-working
 
-const height = 15;
-const width = 15;
+const height = 17;
+const width = 17;
 
 let activeColor = 'red';
 const activeColorPreview = document.getElementById('activeColorPreview');
@@ -266,11 +266,22 @@ function addToHistory(){
   console.log('adding to history:' + newColor);
 
   for(let i = (historyMemory - 1); i > 0; i--){
-    console.log('i:' + history[i]);
-    console.log('i-1:' + history[i-1]); 
     history[i].style.backgroundColor = history[i-1].style.backgroundColor;
   }
   history[0].style.backgroundColor = newColor;
+
+  setCursors();
+}
+
+// meant to discourage user from touching a history color if none has been saved
+function setCursors(){
+  for(let i = 0; i < historyMemory; i++){
+    if(history[i].style.backgroundColor === 'transparent'){
+      history[i].style.setProperty('--historyCursor', 'default');
+    }else{
+      history[i].style.setProperty('--historyCursor', 'pointer');
+    }
+  }
 }
 
 // MISC -----------------------------------------------
@@ -295,17 +306,17 @@ function RGBToHexA(red,green,blue) {
 }
 
 function testColorOnStartup(){
-  h1.style.backgroundColor = 'red';
-  h2.style.backgroundColor = 'orange';
-  h3.style.backgroundColor = 'yellow';
-  h4.style.backgroundColor = 'green';
-  h5.style.backgroundColor = 'blue';
-  h6.style.backgroundColor = 'purple';
+  h1.style.backgroundColor = 'transparent';
+  h2.style.backgroundColor = 'transparent';
+  h3.style.backgroundColor = 'transparent';
+  h4.style.backgroundColor = 'transparent';
+  h5.style.backgroundColor = 'transparent';
+  h6.style.backgroundColor = 'transparent';
 }
 
 
 // RUN ON LOAD ------------------------------------------
-// testColorOnStartup();   // REMOVE LATER ----- FOR TESTING
+testColorOnStartup();   // REMOVE LATER ----- FOR TESTING
 makeRows(height, width);
 document.getElementById('slidersContainer').style.borderBottom = '1.5px solid #ddd';
 document.getElementById('colorHistoryContainer').style.borderBottom = '1.5px solid #ddd';
