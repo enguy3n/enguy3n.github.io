@@ -1,16 +1,11 @@
-// https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript
-// https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
-// https://stackoverflow.com/questions/19068070/how-to-style-a-div-to-be-a-responsive-square
-// https://www.w3docs.com/snippets/javascript/how-to-disable-text-selection-copy-cut-paste-and-right-click-on-a-web-page.html
-// https://www.w3schools.com/howto/howto_js_rangeslider.asp
-// https://css-tricks.com/converting-color-spaces-in-javascript/
-// https://stackoverflow.com/questions/3349332/getelementsbyclassname-not-working
-
-const height = 17;
-const width = 17;
+// IMPORTANT VARIABLES --------------------------
+const height = 15;
+const width = 15;
 
 let activeColor = 'red';
 const activeColorPreview = document.getElementById('activeColorPreview');
+
+let eyedropperActive = false;
 
 const html = document.getElementsByTagName('html')[0];
 const container = document.getElementById("canvasContainer");
@@ -64,6 +59,7 @@ const whiteSelector = document.getElementById('whiteContainer');
 const customSelector = document.getElementById('customContainer');
 const customPreview = document.getElementById('customPreview');
 const eraserSelector = document.getElementById('eraserContainer');
+const allColorSelectors = document.getElementsByClassName('colorContainer');
 
 let customColor = customPreview.style.backgroundColor;
 
@@ -86,10 +82,26 @@ bgColorButton.addEventListener('click', changeBGColor);
 
 // MANIPULATE CANVAS -------------------------------------
 
-function changePixelColor(cell, activeColor){
-  console.log('changing pixel color: ' + activeColor);
+function processPixelClick(cell, activeColor){
+  console.log('processing pixel click; color: ' + activeColor);
 
-	cell.style.backgroundColor = activeColor;
+  // if eyedropper inactive
+  if(!eyedropperActive){
+	  cell.style.backgroundColor = activeColor;
+  
+  }else{
+    console.log('eyedropper active; stealing pixel color');
+
+    let foundColor = '';
+    // color will 'fall through' and choose background color if no color in pixel
+    if(cell.style.backgroundColor !== 'transparent'){
+      foundColor = cell.style.backgroundColor;
+    
+    }else{
+      foundColor = container.style.backgroundColor;
+    }
+    customPreview.style.backgroundColor = foundColor;
+  }
 }
 
 function changeBGColor(){
@@ -101,6 +113,10 @@ function changeBGColor(){
 // COLOR SELECTORS -------------------------------------------------
 function colorSelection(colorSelector, color){
   console.log('color:' + color);
+  // toggle off eyedropper
+  eyedropperActive = false;
+  eyedropper.style.fontWeight = 'normal';
+
   // change text to  show user which color is active
   previousColorText.style.fontWeight = 'normal';
   colorSelector.style.fontWeight = 'bold';
@@ -132,6 +148,31 @@ function updateCustomColor(channel, value){
   customPreview.style.backgroundColor = newColor;
 }
 
+// EYEDROPPER-SPECIFIC CODE -----------------------------------------
+const eyedropper = document.getElementById('eyedropperContainer');
+eyedropper.addEventListener('click', toggleEyedropper);
+
+function toggleEyedropper(){
+  console.log('toggling eyedropper');
+
+  // toggle on
+  if(!eyedropperActive){
+    console.log('eyedropper on');
+    
+    eyedropperActive = true;
+
+    Array.from(allColorSelectors).forEach((element) => element.style.fontWeight = 'normal');
+    eyedropper.style.fontWeight = 'bold';
+
+  // toggle off
+  }else{
+    console.log('eyedropper off');
+
+    eyedropperActive = false;
+    eyedropper.style.fontWeight = 'normal';
+  }
+}
+
 // UI -------------------------------------------------
 
 function updateSliderText(sliderText, value){
@@ -151,7 +192,8 @@ function makeRows(rows, cols) {
     let cell = document.createElement("div");
     // cell.innerText = (c + 1);
     container.appendChild(cell).className = "gridItem";
-    cell.addEventListener('click', ()=>changePixelColor(cell, activeColor));
+    cell.addEventListener('click', ()=>processPixelClick(cell, activeColor));
+    cell.style.backgroundColor = 'transparent'; // initialize pixel to be transparent
   }
 }
 
@@ -237,15 +279,12 @@ const h4 = document.getElementById('h4');
 const h5 = document.getElementById('h5');
 const h6 = document.getElementById('h6');
 
-h1.addEventListener('click', ()=>colorSelectionFromHistory(h1.style.backgroundColor));
-h2.addEventListener('click', ()=>colorSelectionFromHistory(h2.style.backgroundColor));
-h3.addEventListener('click', ()=>colorSelectionFromHistory(h3.style.backgroundColor));
-h4.addEventListener('click', ()=>colorSelectionFromHistory(h4.style.backgroundColor));
-h5.addEventListener('click', ()=>colorSelectionFromHistory(h5.style.backgroundColor));
-h6.addEventListener('click', ()=>colorSelectionFromHistory(h6.style.backgroundColor));
-
 const history = [h1, h2, h3, h4, h5, h6];
 const historyMemory = history.length;
+
+for(let i = 0; i < historyMemory; i++){
+  history[i].addEventListener('click', ()=>colorSelectionFromHistory(history[i].style.backgroundColor));
+}
 
 function colorSelectionFromHistory(color){
   console.log('changing color from history:' + color);
