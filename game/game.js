@@ -352,18 +352,15 @@ function RGBToHexA(red,green,blue) {
   return "#" + red + green + blue;
 }
 
-function testColorOnStartup(){
-  h1.style.backgroundColor = 'transparent';
-  h2.style.backgroundColor = 'transparent';
-  h3.style.backgroundColor = 'transparent';
-  h4.style.backgroundColor = 'transparent';
-  h5.style.backgroundColor = 'transparent';
-  h6.style.backgroundColor = 'transparent';
+function initializeHistory(){
+  for(let i = 0; i < historyMemory; i++){
+    history[i].style.backgroundColor = 'transparent';
+  }
 }
 
 
 // RUN ON LOAD ------------------------------------------
-testColorOnStartup();   // REMOVE LATER ----- FOR TESTING
+initializeHistory();   // REMOVE LATER ----- FOR TESTING
 makeRows(height, width);
 document.getElementById('slidersContainer').style.borderBottom = '1.5px solid #ddd';
 document.getElementById('colorHistoryContainer').style.borderBottom = '1.5px solid #ddd';
