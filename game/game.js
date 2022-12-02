@@ -82,6 +82,9 @@ bgColorButton.addEventListener('click', changeBGColor);
 
 // MANIPULATE CANVAS -------------------------------------
 
+const clearCanvasButton = document.getElementById('clearCanvas');
+clearCanvasButton.addEventListener('click', clearCanvas);
+
 function processPixelClick(cell, activeColor){
   console.log('processing pixel click; color: ' + activeColor);
 
@@ -108,6 +111,11 @@ function changeBGColor(){
   console.log('adjusting background color:' + activeColor);
 
   container.style.backgroundColor = activeColor;
+}
+
+function clearCanvas(){
+  console.log('clearing canvas');
+  Array.from(pixels).forEach((element => element.style.backgroundColor = 'transparent'));
 }
 
 // COLOR SELECTORS -------------------------------------------------
