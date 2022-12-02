@@ -73,17 +73,29 @@
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">R</div>
                         <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "redSlider">
-                        <div class = "sliderValue" id = "redValue">0</div> 
+                        <div class = "sliderValue" id = "redValue">000</div> 
                     </div>
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">G</div>
                         <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "greenSlider">
-                        <div class = "sliderValue" id = "greenValue">0</div>
+                        <div class = "sliderValue" id = "greenValue">000</div>
                     </div>
                     <div class = "RGBSliderContainer">
                         <div class = "sliderName">B</div>
                         <input type = "range" min = "0" max = "255" value = "0" class = "slider" id = "blueSlider">
-                        <div class = "sliderValue" id = "blueValue">0</div>
+                        <div class = "sliderValue" id = "blueValue">000</div>
+                    </div>
+                    <input type = "button" class = "button" id = "saveColorToHistory" value = "save color to history">
+                </div>
+                <div class = "sideUIContainer" id = "colorHistoryContainer">
+                    <div class = "boxDescription">COLOR HISTORY</div>
+                    <div id = "historyBoxContainer">
+                        <div class = "historyItem" id = "h1"></div>
+                        <div class = "historyItem" id = "h2"></div>
+                        <div class = "historyItem" id = "h3"></div>
+                        <div class = "historyItem" id = "h4"></div>
+                        <div class = "historyItem" id = "h5"></div>
+                        <div class = "historyItem" id = "h6"></div>
                     </div>
                 </div>
                 <div class = "sideUIContainer" id = "canvasOptions">

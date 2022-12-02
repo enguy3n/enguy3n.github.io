@@ -136,7 +136,7 @@ function updateCustomColor(channel, value){
 
 function updateSliderText(sliderText, value){
   console.log('updating slider value');
-  sliderText.textContent = value;
+  sliderText.textContent = value.toString().padStart(3, '0');
   customSelector.style.fontWeight = 'normal'; // unselect "custom color" when sliders are wiggled
 }
 
@@ -154,8 +154,6 @@ function makeRows(rows, cols) {
     cell.addEventListener('click', ()=>changePixelColor(cell, activeColor));
   }
 }
-
-makeRows(height, width);
 
 // TOGGLE GRID -------------------------------------
 
@@ -209,6 +207,7 @@ function toggleNightMode(){
     Array.from(allSliders).forEach((element) => element.style.border = '0.5px solid black');
     Array.from(allButtons).forEach((element)=>element.style.backgroundColor = 'rgb(52, 43, 57)');
     Array.from(allButtons).forEach((element)=>element.style.color = 'rgb(223, 214, 208)');
+    Array.from(allSliders).forEach((element) => element.style.setProperty('--sliderColor', 'rgb(223, 214, 208)'));
   
   }else{
     console.log('night mode was active');
@@ -222,7 +221,56 @@ function toggleNightMode(){
     Array.from(allSliders).forEach((element) => element.style.border = '0.5px solid #ddd');
     Array.from(allButtons).forEach((element)=>element.style.backgroundColor = 'white');
     Array.from(allButtons).forEach((element)=>element.style.color = 'black');
+    Array.from(allSliders).forEach((element) => element.style.setProperty('--sliderColor', 'white'));
   }
+}
+
+// HISTORY --------------------------------------------
+
+const historyButton = document.getElementById('saveColorToHistory');
+historyButton.addEventListener('click', addToHistory);
+
+const h1 = document.getElementById('h1');
+const h2 = document.getElementById('h2');
+const h3 = document.getElementById('h3');
+const h4 = document.getElementById('h4');
+const h5 = document.getElementById('h5');
+const h6 = document.getElementById('h6');
+
+h1.addEventListener('click', ()=>colorSelectionFromHistory(h1.style.backgroundColor));
+h2.addEventListener('click', ()=>colorSelectionFromHistory(h2.style.backgroundColor));
+h3.addEventListener('click', ()=>colorSelectionFromHistory(h3.style.backgroundColor));
+h4.addEventListener('click', ()=>colorSelectionFromHistory(h4.style.backgroundColor));
+h5.addEventListener('click', ()=>colorSelectionFromHistory(h5.style.backgroundColor));
+h6.addEventListener('click', ()=>colorSelectionFromHistory(h6.style.backgroundColor));
+
+const history = [h1, h2, h3, h4, h5, h6];
+const historyMemory = history.length;
+
+function colorSelectionFromHistory(color){
+  console.log('changing color from history:' + color);
+  activeColor = color;
+  activeColorPreview.style.backgroundColor = color;
+  customPreview.style.backgroundColor = color;
+  previousColorText.style.fontWeight = 'normal';
+  customSelector.style.fontWeight = 'bold';
+  previousColorText = customSelector;
+}
+
+function addToHistory(){
+  let red = redSlider.valueAsNumber;
+  let green = greenSlider.valueAsNumber;
+  let blue = blueSlider.valueAsNumber;
+  
+  let newColor = RGBToHexA(red,green,blue);
+  console.log('adding to history:' + newColor);
+
+  for(let i = (historyMemory - 1); i > 0; i--){
+    console.log('i:' + history[i]);
+    console.log('i-1:' + history[i-1]); 
+    history[i].style.backgroundColor = history[i-1].style.backgroundColor;
+  }
+  history[0].style.backgroundColor = newColor;
 }
 
 // MISC -----------------------------------------------
@@ -245,3 +293,20 @@ function RGBToHexA(red,green,blue) {
 
   return "#" + red + green + blue;
 }
+
+function testColorOnStartup(){
+  h1.style.backgroundColor = 'red';
+  h2.style.backgroundColor = 'orange';
+  h3.style.backgroundColor = 'yellow';
+  h4.style.backgroundColor = 'green';
+  h5.style.backgroundColor = 'blue';
+  h6.style.backgroundColor = 'purple';
+}
+
+
+// RUN ON LOAD ------------------------------------------
+// testColorOnStartup();   // REMOVE LATER ----- FOR TESTING
+makeRows(height, width);
+document.getElementById('slidersContainer').style.borderBottom = '1.5px solid #ddd';
+document.getElementById('colorHistoryContainer').style.borderBottom = '1.5px solid #ddd';
+Array.from(allSliders).forEach((element) => element.style.setProperty('--sliderColor', 'white'));

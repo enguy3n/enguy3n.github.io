@@ -153,12 +153,14 @@ br{
 
 /* GENERAL SIDE UI */
 .sideUIContainer{
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .boxDescription{
-  padding-bottom: 3px;
+  padding-bottom: 10px;
 }
+
 
 /* SLIDERS */
 
@@ -188,7 +190,7 @@ br{
   appearance: none;
   width: 5px;
   height: 15px;
-  background: white;
+  background: var(--sliderColor);
   cursor: pointer;
 }
 
@@ -196,18 +198,30 @@ br{
 .slider::-moz-range-thumb {
   width: 5px;
   height: 15px;
-  background: white;
+  background: var(--sliderColor);
   cursor: pointer;
 }
 
 #redSlider{
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
 }
 
 #greenSlider{
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,255,0,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,0,1) 100%);
 }
 
 #blueSlider{
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,255,1) 100%);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,255,1) 100%);
+}
+
+/* HISTORY */
+#historyBoxContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.historyItem{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
