@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Source Code Pro|Roboto Mono');
+html{
+    background-color: black;
+    color: #fff9f0;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 0.9rem;
+    cursor: default;
+}
+
+#uiContainer{
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    padding: 3rem;
+}
+
+#info{
+    border-right: 1px solid #fff9f0;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+#disclaimer{
+    font-size: 0.7rem;
+}
+
+#gameContainer{
+    display: grid;
+    padding: 1.5rem;
+    grid-template-rows: 0.5fr 5fr 1fr;
+}
+
+#optionsContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+#feedbackContainer{
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+#score{
+    font-family: 'Source Code Pro', sans-serif;
+    color: red;
+}
+
+.dot{
+    color: red;
+}
+
+h1{
+    font-family: 'Source Code Pro', sans-serif;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+h3{
+    font-family: 'Source Code Pro', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+ul{
+    text-align: left;
+}
+
+hr{
+    width: 25%;
+    color: #fff9f0;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: red;
+    text-decoration: none;
+}
+
+.button:hover{
+    color: red;
+    cursor: pointer;
+}
