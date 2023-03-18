@@ -1,5 +1,5 @@
 // GLOBAL -------------------------------------------------------------
-let timeout = 1; // 40
+let timeout = 40;
 let score = 0;
 let highScore = 0;
 let freyjaHP = 25;
@@ -197,7 +197,9 @@ function endGame(endingText){
 }
 
 // RUN ON INIT -------------------------------------------------------------
+timeout = 100;
 invokeCrawl('FREYJA SIMULATOR');
+timeout = 5;
 let beginGame = document.createElement('div')
 beginGame.classList.add('button');
 beginGame.textContent = '> BEGIN GAME';
