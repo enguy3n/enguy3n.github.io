@@ -8,6 +8,10 @@
         <script defer src = "freyja.js"></script>
     </head>
     <body>
+        <audio id = "music" autoplay loop>
+            <source src = "gimme-gimme-gimme-8-bit.mp3" type = "audio/mpeg">
+            Your browser does not support audio, so the music for this game will not play.
+        </audio>
         <div id = "uiContainer">
             <!-- about -->
             <div id = "info">
@@ -15,7 +19,7 @@
                 <h1>FREYJA SIMULATOR</h1>
                 <hr>
                 <p>FREYJA SIMULATOR is an adapted retelling of Hyndluliod (The Song of Hyndla).
-                    Also known as <a href = "https://en.wikipedia.org/wiki/V%C3%B6lusp%C3%A1">Little Voluspa</a>, 
+                    Also known as Little <a href = "https://en.wikipedia.org/wiki/V%C3%B6lusp%C3%A1">Völuspá</a>, 
                     Hyndluliod tells the story of Freyja travelling to the giantess Hyndla.
                 </p>
                 <p id = "disclaimer">DISCLAIMER: Freyja Simulator is not an accurate retelling of Hyndluliod.  Also, I didn't code this well, so this will break if you pick a new options without waiting for text to finish crawling, sorry.</p>
@@ -25,11 +29,13 @@
                 <ul>
                     <li>ADAPTED FROM: <em>The Poetic Edda</em> (Translated by Carolyne Larrington)</li>
                     <li>ADDITIONAL INFORMATION: <em>Norse Mythology</em> (John Lindow)</li>
+                    <li>AUDIO: Gimme Gimme Gimme (8 Bit Version) — Original by Abba, Cover by Sariascha</li>
                 </ul>
                 <!-- <hr> -->
                 <p class = 'dot'>•</p>
                 <h3>ACTIONS</h3>
                 <div class = "button" id = "resetGame">> RESET GAME</div>
+                <div class = "button" id = "audioToggle">> TOGGLE AUDIO</div>
             </div>
             <!-- the actual game -->
             <div id = "gameContainer">

@@ -85,3 +85,7 @@ a:hover{
     color: red;
     cursor: pointer;
 }
+
+audio{
+    font-size: 0.7rem;
+}

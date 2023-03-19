@@ -6,6 +6,7 @@ let freyjaHP = 25;
 let hyndlaHP = 20000;
 let hammerObtained = false;
 let responsesExhausted = false;
+let musicActive = true;
 
 // GAME BOX VARIABLES -------------------------------------------------------------
 const userResponse = document.querySelector('#userResponse');
@@ -23,6 +24,20 @@ reset.addEventListener('click', function(){
         console.log('reset cancelled');
     }
 });
+
+// TOGGLE AUDIO -------------------------------------------------------------
+let audioToggle = document.querySelector('#audioToggle');
+let music = document.querySelector('#music');
+audioToggle.addEventListener('click', function(){
+    if(musicActive){
+        musicActive = false;
+        music.muted = true;
+    
+    }else{
+        musicActive = true;
+        music.muted = false;
+    }
+})
 
 // TEXT CRAWL FUNCITONALITY -------------------------------------------------------------
 function invokeCrawl(string) {
@@ -70,7 +85,7 @@ function doFight(){
     let freyjaPower = 5;
     let hyndlaPower = 40;
 
-    gameResponse.textContent = 'YOU HAVE INVOKED THE WRATH OF THE GIANTS!.';
+    gameResponse.textContent = 'YOU HAVE INVOKED THE WRATH OF THE GIANTS!';
 
     // box to tell user about hammer boon
     let notification = document.createElement('div');
@@ -81,7 +96,7 @@ function doFight(){
         freyjaPower = 40000;
         hyndlaPower = 5;
     }else{
-        notification.textContent = 'You regret not having Thor\'s Hammer to assit you.';
+        notification.textContent = 'You regret not having Thor\'s Hammer to assist you.';
     }
     gameResponse.appendChild(notification);
 
@@ -119,7 +134,7 @@ function doFight(){
         let fHPNew = freyjaHP - hyndlaHit;
         let hHPNew = hyndlaHP - freyjaHit;
 
-        console.log('freyja hp:' + freyjaHP + '; freyha hits for:' + freyjaHit);
+        console.log('freyja hp:' + freyjaHP + '; freyha hits for: ' + freyjaHit);
         console.log('hyndla hp:' + hyndlaHP + '; hyndla hits for: ' + hyndlaHit);
         console.log('fhp recalc:' + fHPNew + 'hhp recalc: ' + hHPNew);
 
@@ -130,13 +145,13 @@ function doFight(){
             freyjaStatus.textContent = 'FREYJA HP: ' + freyjaHP;
             hyndlaStatus.textContent = 'HYNDLA HP: ' + hyndlaHP;
 
-            fightFeedback.textContent = 'Hyndla hits you for ' + hyndlaHit + ' HP.  You hit Hyndla for ' + freyjaHit + 'HP.';
+            fightFeedback.textContent = 'Hyndla hits you for ' + hyndlaHit + ' HP.  You hit Hyndla for ' + freyjaHit + ' HP.';
         // freyja dies
         }else if(fHPNew < 0){
             gameResponse.removeChild(statusContainer);
             gameResponse.removeChild(fightFeedback);
             updateResponse('YOU DIED!');
-            let prompt = 'Hyndla hit you fatally for ' + hyndlaHit + ' damage!  You have died!  The Aesir won\'t be happy about this.';
+            let prompt = 'Hyndla hit you fatally for ' + hyndlaHit + ' damage!  You have died!  The Æsir won\'t be happy about this.';
             endGame(prompt);
         // hyndla dies
         }else{
@@ -324,7 +339,7 @@ function seeHyndla(hammerFeedback){
 function greetHyndla(){
     console.log('greeting hyndla');
     optionsContainer.textContent = '';
-    let prompt = 'She looks at you suspiciously.  \"You\'re decietful, Freyja, when you test me so, when you look at us that way, when you\'re taking your man on the road to Valhall, young Ottar, son of Innstein.\"';
+    let prompt = 'She looks at you suspiciously.  \"You\'re deceitful, Freyja, when you test me so, when you look at us that way, when you\'re taking your man on the road to Valhall, young Ottar, son of Innstein.\"';
     invokeCrawl(prompt);
 
     // create button options
@@ -363,7 +378,7 @@ function openTalk(){
     continueConvo.textContent = '> LET\'S TALK.';
     continueConvo.addEventListener('click', function(){
         addToScore(2);
-        let feedback = 'LET\'S CONTENT FROM OUR SADDLES!  WE SHOULD SIT DOWN, AND TALK OF PRINCES\' LINEAGES, ABOUT THOSE MEN WHO ARE DESCENDED FROM THE GODS.  THEY HAVE WAGERED FOREIGN GOLD, YOUNG OTTAR AND ANGANTYR; IT\'S VITAL TO HELP.  OTTAR HAS ALWAYS TRUSTED IN THE GODDESSES.';
+        let feedback = 'LET\'S CONTEND FROM OUR SADDLES!  WE SHOULD SIT DOWN, AND TALK OF PRINCES\' LINEAGES, ABOUT THOSE MEN WHO ARE DESCENDED FROM THE GODS.  THEY HAVE WAGERED FOREIGN GOLD, YOUNG OTTAR AND ANGANTYR; IT\'S VITAL TO HELP.  OTTAR HAS ALWAYS TRUSTED IN THE GODDESSES.';
         updateResponse(feedback);
         familyTalk();
     });
@@ -412,9 +427,9 @@ function littleVoluspa(){
 
     // building response string
     let response = 'Eleven of the Æsir when all counted up, Baldr who slumped against a death-hammock; Vali was worthy to avenge this; all these are your kin, Ottar the simpleton.';
-    response += 'All the seeresses descended from Vidolf, all the wizards from Vilmeid, all the seid-practicers from Svarthofdi, all giants from Ymir.';
-    response += 'One was born greater than all, he was empowered with the strenth of earth; this prince is said to be the wewalthiest, closely related to all the great houses.';
-    response += 'Then will come another, even mightier, though I dare not say his name; few can now see further than when Odin has to meet the wolf.';
+    response += '  All the seeresses descended from Vidolf, all the wizards from Vilmeid, all the seid-practicers from Svarthofdi, all giants from Ymir.';
+    response += '  One was born greater than all, he was empowered with the strenth of earth; this prince is said to be the wewalthiest, closely related to all the great houses.';
+    response += '  Then will come another, even mightier, though I dare not say his name; few can now see further than when Odin has to meet the wolf.';
     invokeCrawl(response);
 
     // create buttons
