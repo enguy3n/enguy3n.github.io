@@ -422,7 +422,7 @@ function familyTalk(){
     
     // build response string
     let response = 'Now let ancient kinsmen be counted up and men\'s lineages by declared: who is of the Skioldungs, who is of the Skilfings, who is of the Odlings, who is of the Ynglings.';
-    response += '  You, Ottar, were sone of Innstein, and Innstein of Alf the Old, Alf of Ulf, Ulf of Sæfari, and Sæfari from Svan the red.';
+    response += '  You, Ottar, were son of Innstein, and Innstein of Alf the Old, Alf of Ulf, Ulf of Sæfari, and Sæfari from Svan the red.';
     response += '  From them come the Skioldungs, from then the Skilfings, from them the Odlings, from them the Ynglings: all these are your kin, Ottar the simpleton.';
     response += '  Do you want to know more?'
     invokeCrawl(response);
