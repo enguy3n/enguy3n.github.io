@@ -7,6 +7,7 @@ let hyndlaHP = 20000;
 let hammerObtained = false;
 let responsesExhausted = false;
 let musicActive = true;
+let responsesIncomplete = false; // if information has partially been revealed
 
 // GAME BOX VARIABLES -------------------------------------------------------------
 const userResponse = document.querySelector('#userResponse');
@@ -30,10 +31,12 @@ let audioToggle = document.querySelector('#audioToggle');
 let music = document.querySelector('#music');
 audioToggle.addEventListener('click', function(){
     if(musicActive){
+        console.log('audio toggled off');
         musicActive = false;
         music.muted = true;
     
     }else{
+        console.log('audio toggled on');
         musicActive = true;
         music.muted = false;
     }
@@ -91,12 +94,13 @@ function doFight(){
     let notification = document.createElement('div');
     notification.style.color = 'red';
     notification.style.fontSize = '0.8rem';
+    notification.style.padding = '0.2rem';
     if(hammerObtained){
-        notification.textContent = 'YOU CAN FEEL VANR-STRENGTH IN YOU.  MJOLNIR IS GREATLY BUFFING YOUR DAMAGE.';
+        notification.textContent = 'YOU CAN FEEL AS-STRENGTH IN YOU.  MJOLNIR IS GREATLY BUFFING YOUR DAMAGE.';
         freyjaPower = 40000;
         hyndlaPower = 5;
     }else{
-        notification.textContent = 'You regret not having Thor\'s Hammer to assist you.';
+        notification.textContent = 'You regret not having Thor\'s hammer to assist you.';
     }
     gameResponse.appendChild(notification);
 
@@ -134,10 +138,6 @@ function doFight(){
         let fHPNew = freyjaHP - hyndlaHit;
         let hHPNew = hyndlaHP - freyjaHit;
 
-        console.log('freyja hp:' + freyjaHP + '; freyha hits for: ' + freyjaHit);
-        console.log('hyndla hp:' + hyndlaHP + '; hyndla hits for: ' + hyndlaHit);
-        console.log('fhp recalc:' + fHPNew + 'hhp recalc: ' + hHPNew);
-
         // fight continues
         if(fHPNew > 0 && hHPNew > 0){
             freyjaHP = fHPNew;
@@ -160,10 +160,14 @@ function doFight(){
             gameResponse.removeChild(fightFeedback);
             updateResponse('HYNDLA DIED!');
             let prompt = 'You hit Hyndla fatally for ' + freyjaHit + ' damage!  ';
-            if(!responsesExhausted){
-                prompt += 'Unfortunately, you didn\'t gain any information, so things could have gone better.'
-            }else{
+            if(responsesExhausted){
                 prompt += 'That could have gone better, but you got everything Ottar needed, so it\'s time to go home.';
+                
+            }else if(responsesIncomplete){
+                prompt += 'You probably still needed her, but oh well.'
+            
+            }else{
+                prompt += 'Unfortunately, you didn\'t gain any information, so things could have gone better.';
             }
             endGame(prompt);
         }
@@ -203,26 +207,53 @@ function endGame(endingText){
         hammerObtained = false;
         freyjaHP = 25;
         hyndlaHP = 20000;
+        responsesExhausted = false;
+        responsesIncomplete = false;
         updateResponse('');
         console.log('resetting score');
         addToScore(-1 * (score/10));
         step1();
     });
+
+    // option to return to home
+    let homeButton = document.createElement('div');
+    homeButton.classList.add('button');
+    homeButton.textContent = '> HOME';
+    homeButton.addEventListener('click', function(){
+        gameResponse.removeChild(scoreReportContainer);
+        hammerObtained = false;
+        freyjaHP = 25;
+        hyndlaHP = 20000;
+        responsesExhausted = false;
+        responsesIncomplete = false;
+        updateResponse('');
+        console.log('returning to home');
+        addToScore(-1 * (score/10));
+        home();
+    });
+
     optionsContainer.appendChild(restart);
+    optionsContainer.appendChild(homeButton);
 }
 
 // RUN ON INIT -------------------------------------------------------------
-timeout = 100;
-invokeCrawl('FREYJA SIMULATOR');
-timeout = 5;
-let beginGame = document.createElement('div')
-beginGame.classList.add('button');
-beginGame.textContent = '> BEGIN GAME';
-optionsContainer.appendChild(beginGame);
-beginGame.addEventListener('click', function(){
-    optionsContainer.textContent = '';
-    step1();
-});
+function home(){
+    console.log('game returned to home');
+    optionsContainer.textContent = ''
+    gameResponse.textContent = '';
+    timeout = 100;
+    invokeCrawl('FREYJA SIMULATOR');
+    timeout = 5;
+    let beginGame = document.createElement('div')
+    beginGame.classList.add('button');
+    beginGame.textContent = '> BEGIN GAME';
+    optionsContainer.appendChild(beginGame);
+    beginGame.addEventListener('click', function(){
+        optionsContainer.textContent = '';
+        step1();
+    });
+}
+home();
 
 function step1(){
     console.log('game starting');
@@ -395,6 +426,8 @@ function familyTalk(){
     response += '  From them come the Skioldungs, from then the Skilfings, from them the Odlings, from them the Ynglings: all these are your kin, Ottar the simpleton.';
     response += '  Do you want to know more?'
     invokeCrawl(response);
+    responsesIncomplete = true;
+    console.log('switching responses to partial');
 
     // responses
     let stop = document.createElement('div');
@@ -407,28 +440,81 @@ function familyTalk(){
         endGame(prompt);
     });
 
+    let memoryAle = document.createElement('div');
+    memoryAle.classList.add('button');
+    memoryAle.textContent = '> ASK FOR MEMORY ALE';
+    memoryAle.addEventListener('click', function(){
+        updateResponse('GIVE SOME MEMORY-ALE TO MY BOAR, SO THAT HE CAN RECOUNT ALL THESE WORDS, THIS CONVERSATION, ON THE THIRD MORNING, WHEN HE AND ANGANTYR RECKON UP THEIR LINEAGES.');
+        insult();
+    });
+
     let continueConvo = document.createElement('div');
     continueConvo.classList.add('button');
     continueConvo.textContent = '> GO ON.';
     continueConvo.addEventListener('click', function(){
         addToScore(1);
         updateResponse('GO ON.');
+        familyCont();
+    });
+
+    optionsContainer.appendChild(stop);
+    optionsContainer.appendChild(memoryAle);
+    optionsContainer.appendChild(continueConvo);
+}
+
+function familyCont(){
+    console.log('continuing family talk');
+    optionsContainer.textContent = '';
+
+    let response = 'Hildigunn was her mother, child of Sava and the sea-king.';
+    response += '  Dag married Thora, mother of tough men; the best champions were born into that lineage: Fradmar and Gyrd are both the Frekis: Am and Iosurmar, Alf the old...';
+    response += '  Ketil their friend was called, Klypp\'s heir, he was your mother\'s maternal grandfather; then Frodi came before Kari; Alf was born as the elder son.';
+    response += '  Nanna came next; Isolf and Asolf, sons of Olmod; Gunnar the bulwark, Grim the plough-maker, Thorir Ironshield, Ulf the gaper.';
+    response += ' All these are your kin, Ottar the simpleton.  Do you want to know more?';
+    invokeCrawl(response);
+
+    // responses
+    let stop = document.createElement('div');
+    stop.classList.add('button');
+    stop.textContent = '> NEVERMIND';
+    stop.addEventListener('click', function(){
+        let feedback = 'THAT\'S ENOUGH.'
+        updateResponse(feedback);
+        let prompt = 'You could have listened for longer, but you think you\'ve heard enough.  Ottar stands a better chance against Angantyr now.';
+        endGame(prompt);
+    });
+
+    let memoryAle = document.createElement('div');
+    memoryAle.classList.add('button');
+    memoryAle.textContent = '> ASK FOR MEMORY ALE';
+    memoryAle.addEventListener('click', function(){
+        updateResponse('GIVE SOME MEMORY-ALE TO MY BOAR, SO THAT HE CAN RECOUNT ALL THESE WORDS, THIS CONVERSATION, ON THE THIRD MORNING, WHEN HE AND ANGANTYR RECKON UP THEIR LINEAGES.');
+        insult();
+    });
+
+    let continueConvo = document.createElement('div');
+    continueConvo.classList.add('button');
+    continueConvo.textContent = '> GO ON.';
+    continueConvo.addEventListener('click', function(){
+        updateResponse('GO ON.');
         littleVoluspa();
     });
 
     optionsContainer.appendChild(stop);
+    optionsContainer.appendChild(memoryAle);
     optionsContainer.appendChild(continueConvo);
+
 }
 
 function littleVoluspa(){
-    console.log('little voluspa')
+    console.log('little voluspa');
     optionsContainer.textContent = '';
     responsesExhausted = true;
 
     // building response string
     let response = 'Eleven of the Æsir when all counted up, Baldr who slumped against a death-hammock; Vali was worthy to avenge this; all these are your kin, Ottar the simpleton.';
     response += '  All the seeresses descended from Vidolf, all the wizards from Vilmeid, all the seid-practicers from Svarthofdi, all giants from Ymir.';
-    response += '  One was born greater than all, he was empowered with the strenth of earth; this prince is said to be the wewalthiest, closely related to all the great houses.';
+    response += '  One was born greater than all, he was empowered with the strenth of earth; this prince is said to be the wealthiest, closely related to all the great houses.';
     response += '  Then will come another, even mightier, though I dare not say his name; few can now see further than when Odin has to meet the wolf.';
     invokeCrawl(response);
 
@@ -443,7 +529,7 @@ function littleVoluspa(){
 
     let expected = document.createElement('div');
     expected.classList.add('button');
-    expected.textContent = '> ASK FOR MEMORY-ALE.';
+    expected.textContent = '> ASK FOR MEMORY-ALE';
     expected.addEventListener('click', function(){
         addToScore(1);
         updateResponse('GIVE SOME MEMORY-ALE TO MY BOAR, SO THAT HE CAN RECOUNT ALL THESE WORDS, THIS CONVERSATION, ON THE THIRD MORNING, WHEN HE AND ANGANTYR RECKON UP THEIR LINEAGES.');
@@ -464,7 +550,7 @@ function insult(){
     // options boxes
     let fight = document.createElement('div');
     fight.classList.add('button');
-    fight.textContent = '> FIGHT!';
+    fight.textContent = '> FIGHT';
     fight.addEventListener('click', function(){
         updateResponse('FIGHT!');
         addToScore(1);
@@ -475,9 +561,17 @@ function insult(){
     insult.classList.add('button');
     insult.textContent = '> INSULT';
     insult.addEventListener('click', function(){
-        addToScore(3);
         updateResponse('I\'LL SURROUND THIS PLACE WITH FIRE FROM THE TROLL-WOMAN, SO THAT YOU CAN NEVER GET AWAY FROM HERE.');
-        endGame('You depart with Ottar abruptly, and on bad terms with the giantess.  You didn\'t manage to get the memory ale, but it was the best you could do, anyway.');
+        let prompt = 'You depart with Ottar abruptly, and on bad terms with the giantess.  You didn\'t manage to get the memory ale, ';
+
+        // change response based on whether "memory ale" was called early
+        if(responsesExhausted){
+            addToScore(3);
+            prompt += 'but it was the best you could do anyway.';
+        }else{
+            prompt += 'and you think you may have spoken too soon.';
+        }
+        endGame(prompt);
     })
 
     // append
