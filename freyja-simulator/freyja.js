@@ -388,7 +388,7 @@ function greetHyndla(){
     deny.textContent = '> YOU\'RE MISTAKEN.';
     deny.addEventListener('click', function(){
         addToScore(1);
-        let feedback = 'YOU\'RE CONFUSED, HYNDLA; I THINK YOU\'RE DREAMING WHEN YOU SAY MY MAN IS ON THE ROAD TO VALHALL, THERE WHERE MY BOAR IS GLOWING WITH HIS GOLDEN BRISTLES: BATTLE-HOG.';
+        let feedback = 'YOU\'RE CONFUSED, HYNDLA; I THINK YOU\'RE DREAMING WHEN YOU SAY MY MAN IS ON THE ROAD TO VALHALL, THERE WHERE MY BOAR IS GLOWING WITH HIS GOLDEN BRISTLES, BATTLE-HOG.';
         updateResponse(feedback);
         openTalk();
     });
