@@ -442,7 +442,7 @@ function familyTalk(){
 
     let memoryAle = document.createElement('div');
     memoryAle.classList.add('button');
-    memoryAle.textContent = '> ASK FOR MEMORY ALE';
+    memoryAle.textContent = '> ASK FOR MEMORY-ALE';
     memoryAle.addEventListener('click', function(){
         updateResponse('GIVE SOME MEMORY-ALE TO MY BOAR, SO THAT HE CAN RECOUNT ALL THESE WORDS, THIS CONVERSATION, ON THE THIRD MORNING, WHEN HE AND ANGANTYR RECKON UP THEIR LINEAGES.');
         insult();
@@ -486,7 +486,7 @@ function familyCont(){
 
     let memoryAle = document.createElement('div');
     memoryAle.classList.add('button');
-    memoryAle.textContent = '> ASK FOR MEMORY ALE';
+    memoryAle.textContent = '> ASK FOR MEMORY-ALE';
     memoryAle.addEventListener('click', function(){
         updateResponse('GIVE SOME MEMORY-ALE TO MY BOAR, SO THAT HE CAN RECOUNT ALL THESE WORDS, THIS CONVERSATION, ON THE THIRD MORNING, WHEN HE AND ANGANTYR RECKON UP THEIR LINEAGES.');
         insult();
@@ -562,7 +562,7 @@ function insult(){
     insult.textContent = '> INSULT';
     insult.addEventListener('click', function(){
         updateResponse('I\'LL SURROUND THIS PLACE WITH FIRE FROM THE TROLL-WOMAN, SO THAT YOU CAN NEVER GET AWAY FROM HERE.');
-        let prompt = 'You depart with Ottar abruptly, and on bad terms with the giantess.  You didn\'t manage to get the memory ale, ';
+        let prompt = 'You depart with Ottar abruptly, and on bad terms with the giantess.  You didn\'t manage to get the memory-ale, ';
 
         // change response based on whether "memory ale" was called early
         if(responsesExhausted){
