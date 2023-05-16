@@ -330,6 +330,32 @@ nav ul a:active{
     margin-top: 0.2rem;
 }
 
+.graphic-design-box{
+    display: grid;
+    grid-template-columns: 0.15fr 0.85fr;
+    column-gap: 1rem;
+}
+
+.gd-img{
+    width: 100%;
+}
+
+.design-break{
+    margin: 1rem;
+}
+
+#co-symphony-box{
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    column-gap: 1rem;
+}
+
+.two-img-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
 /* documentation */
 
 figure a img{
