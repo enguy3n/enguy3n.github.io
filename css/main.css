@@ -18,26 +18,32 @@ html{
 h1{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 h2{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 h3{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 h4{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 h5{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 h6{
     font-family: 'Source Code Pro', sans-serif;
     color: var(--white);
+    text-transform: uppercase;
 }
 
 a:link{
@@ -85,6 +91,7 @@ hr::before{
     display: inline;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    user-select: none;
 }
 nav a:link{
     text-decoration: none;
@@ -144,5 +151,4 @@ ul li:before{
     display: inline;
     color: var(--white);
     text-transform: uppercase;
-    margin-right: 1px;
 }
