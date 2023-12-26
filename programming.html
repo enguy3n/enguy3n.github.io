@@ -5,6 +5,7 @@
         <meta name = "viewport" content = "width=device-width,initial-scale=1">
         <title>Home</title>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/cards.css">
     </head>
         <div id = "main-container">
             <nav id = "main-nav">
@@ -18,24 +19,98 @@
             </nav>
             <hr id = "hr-nav">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat orci vel sodales dapibus.
-                Mauris eget quam tincidunt, placerat erat vitae, hendrerit purus.
-                Nam metus ante, dictum tempor leo eget, sagittis sodales lorem. Nulla nec condimentum ante.
-                Aenean condimentum ligula consequat nulla efficitur, ut commodo libero vulputate.
-                <a href = "#">testl ink</a>
+                The following is a collection of programming projects I have worked on, both for academics 
+                and extracurriculars. Most of them contain a link to the working application, but some are not 
+                actually hosted anywhere and therefore cannot be accessed any other way than recording.
             </p>
             <hr>
             
-            <ol>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-            </ol>
-            <ul>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-            </ul>
+            <div class = "card">
+                <div class = "card-thumb">
+                    <img src = "img/gc_preview.gif">
+                </div>
+                <div class = "card-txt">
+                    <h3 class = "card-header">GreenChallenge</h3>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Tools:</div>
+                        <div class = "card-sub-text">
+                            HTML, CSS, Javascript, Bootstrap, EJS, ExpressJS, NodeJS, PostgreSQL, Docker
+                        </div>
+                    </div>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Completion Date:</div>
+                        <div class = "card-sub-text">05/04/23</div>
+                    </div>
+                    <p class = "card-p">
+                        GreenChallenge was a mock website created for CSCI 3308: Software Development and Tools,
+                        a class at CU Boulder, and was a team effort.
+                    </p>
+                    <p>
+                        I was responsible for login, register, about, and user profile pages entirely (layout, database 
+                        access/manipulation), and did UI design/coding for the entire website. I also managed team deadlines, 
+                        meetings, and coordinated people, alongside being on standby to help troubleshoot problems and teach 
+                        others how to use certain tools.
+                    </p>
+                    <p class = "card-p">
+                        <a href="https://drive.google.com/file/d/1KXN42UBVtB_88ER7lauRgodrRfP7VWNv/view">
+                            DEMO >> 
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class = "card">
+                <div class = "card-thumb">
+                    <img src = "img/freyja_preview.gif">
+                </div>
+                <div class = "card-txt">
+                    <h3 class = "card-header">Freyja Simulator</h3>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Tools:</div>
+                        <div class = "card-sub-text">HTML, CSS, Javascript</div>
+                    </div>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Completion Date:</div>
+                        <div class = "card-sub-text">03/18/23</div>
+                    </div>
+                    <p class = "card-p">
+                        Freyja Simulator is a text adventure adaptation of Hyndluljóð, an Old Norse poem. 
+                        It was designed, planned, and programmed in a single night, and is somewhat
+                        buggy as a result. Despite this, it was a good exercise in rapidly developing something, 
+                        which challenged the limits of my knowledge in Javascript.
+                    </p>
+                    <p class = "card-p">
+                        <a href="freyja-simulator/freyja-simulator.html">DEMO >></a>
+                    </p>
+                </div>
+            </div>
+
+            <div class = "card">
+                <div class = "card-thumb">
+                    <img src = "img/pixel_creator_preview.gif">
+                </div>
+                <div class = "card-txt">
+                    <h3 class = "card-header">Pixel Art Creator</h3>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Tools:</div>
+                        <div class = "card-sub-text">HTML, CSS, Javascript</div>
+                    </div>
+                    <div class = "card-sub">
+                        <div class = "card-sub-label">Completion Date:</div>
+                        <div class = "card-sub-text">12/02/22</div>
+                    </div>
+                    <p class = "card-p">
+                        This pixel art creator was my final project for ATLS2200: Web, a class at CU Boulder 
+                        which primarily focused on HTML and CSS. This project was challenging because it 
+                        was my first time working with Javascript to the degree of depth this project required. 
+                        It includes a fixed-size canvas (where lines can be hidden), color selection (via a fixed 
+                        palette, RGB sliders, or an eyedropper), eraser/canvas clearing, and a color history.
+                    </p>
+                    <p class = "card-p">
+                        <a href="pixel-art-creator/game.html">DEMO >> </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </body>
 </html>
