@@ -1,0 +1,13 @@
+#about-grid{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 5rem;
+}
+.about-item{
+    width: 20rem;
+}
+
+li{
+    margin-bottom: 1rem;
+}
