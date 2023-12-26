@@ -144,4 +144,5 @@ ul li:before{
     display: inline;
     color: var(--white);
     text-transform: uppercase;
+    margin-right: 1px;
 }
