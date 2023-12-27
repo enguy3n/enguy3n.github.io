@@ -3,50 +3,119 @@
     <head>
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width=device-width,initial-scale=1">
-        <title>About</title>
-        <link rel = "stylesheet" href = "css/main/main.css">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/about.css">
     </head>
-    <body>
-        <nav>
-            <ul>
-                <li>
-                    <a href = "https://enguy3n.github.io/index.html">>HOME</a>
-                </li>
-                <li>
-                    <a href = "https://enguy3n.github.io/about.html">•ABOUT</a>
-                </li>
-                <li>
-                    <a href = "https://enguy3n.github.io/gallery.html">•GALLERY</a>
-                </li>
-                <li>
-                    <a href = "https://enguy3n.github.io/pages.html">•PROJECTS</a>
-                </li>
-                <li>
-                    <a href = "http://enguy3n.me/game/game.html">•GAME</a>
-                </li>
-                <li>
-                    <a href = "https://enguy3n.github.io/external-links.html">•LINKS</a>
-                </li>
-            </ul>
-        </nav>
-        <div class = "banner">
-            <img class = "header-bg" src = "https://enguy3n.github.io/img/buttons/header.jpg" alt = "background">
-            <div class = "header-txt">
-                <p>ABOUT</p>
+        <div id = "main-container">
+            <nav id = "main-nav">
+                <a href = "index.html" class = "nav-item">HOME</a>
+                <div class ="nav-divider">•</div>
+                <a href = "about.html" id = "nav-active-page">ABOUT</a>
+                <div class ="nav-divider">•</div>
+                <a href = "programming.html" class = "nav-item">PROGRAMMING</a>
+                <div class ="nav-divider">•</div>
+                <a href = "design.html" class = "nav-item">DESIGN</a>
+            </nav>
+            <hr id = "hr-nav">
+            <p>
+                My name is Ethan Nguyen, and I am currently a third-year student at the University of Colorado Boulder
+                seeking a bachelor of science in Computer Science. I am minoring in
+                <a href = "https://www.colorado.edu/atlas/academics/undergraduate/ctd-minor">Creative Technology and Design</a>,
+                focusing on designing for appeal to audiences.
+            </p>
+            <p>
+                My computer science work, both academically and extracurricularly, includes creating terminal programs
+                for tasks ranging from basic computation to accessing APIs for data processing. I also have created web-based
+                applications such as a rudimentary pixel art creator and a star movement simulator using tools such as Javascript,
+                NodeJS, and Flask. I love the process of drafting applications' functionality, to designing for aesthetics and quality-of-life,
+                to programming finalized products. I have also done minor experimentation in data science and data processing, as well
+                as working with microcontrollers for electrical/mechanical systems.
+            </p>
+            <p>
+                As a graphic designer, I like to design posters, applications, and more. I am fascinated by the study of how colors,
+                text placement, font choices, and telegraphy can be used to guide audiences' experience, from how they read text, to
+                what emotions they should feel.
+            </p>
+            <p>
+                In my freetime, I like to spend time hiking, learning to cook/bake, and improving my illustrative skills.
+                I love to learn and expand my skills, and believe that doing this not only makes me stronger in what I am learning,
+                but also in finding new knowledge to apply in other fields.
+            </p>
+            <hr>
+            <div id = "about-grid">
+                <div class = "about-item">
+                    <h3>BACKGROUND</h3>
+                    <ul>
+                        <li><div class = "li-subject">University of Colorado Boulder:</div>
+                            Cummulative GPA of 3.985.
+                            Majoring in Computer Science and minoring in Creative Technology and Design. 
+                        </li>
+                        <li><div class = "li-subject">Learning Assistant:</div>
+                            Worked as a <a href= "https://www.colorado.edu/program/learningassistant/">Learning Assistant</a> 
+                            for the Department of Computer Science at CU Boulder. Helped teach a class introducing students to basic principles
+                            of programming and C++.
+                        </li>
+                        <li><div class = "li-subject">Colorado Scholars of Astrophysics and Art:</div>
+                            Worked on an application called Nerthus, grabbing data from the 
+                            <a href = "https://www.esa.int/Science_Exploration/Space_Science/Gaia">Gaia telescope</a> to estimate
+                            the position of stars in the night sky over time. Presented these in the form of an interactable app.
+                        </li>
+                    </ul>
+                </div>
+                <div class = "about-item">
+                    <h3>LANGUAGES</h3>
+                    <ul>
+                        <li><div class = "li-subject">HTML/CSS/Javascript:</div>
+                            Used for creating basic interactive web-apps.
+                        </li>
+                        <li><div class = "li-subject">NodeJS:</div>
+                            Used for enhancing web-apps, such as by adding HTTP functionality (such as to write to a database).
+                        </li>
+                        <li><div class = "li-subject">EJS:</div>
+                            Used to help bring data from backend (such as from NodeJS) to frontend.
+                        </li>
+                        <li><div class = "li-subject">Python:</div>
+                            Used for math-heavy programs, such as for data science or intensive calculations.
+                        </li>
+                        <li><div class = "li-subject">Flask:</div>
+                            Used to create Python-based web applications.
+                        </li>
+                        <li><div class = "li-subject">Plotly Dash:</div>
+                            Used to bring graphics to Python-based web apps. Knowledge extends from Flask.
+                        </li>
+                        <li><div class = "li-subject">PostgreSQL:</div>
+                            Used to create, modify, and access data in a database.
+                        </li>
+                        <li><div class = "li-subject">C++:</div>
+                            For basic terminal applications.
+                        </li>
+                        <li><div class = "li-subject">Arduino:</div>
+                            Worked with LEDs, servo motors, I/O, etc. Knowledge extends from C++.
+                        </li>
+                    </ul>
+                </div>
+                <div class = "about-item">
+                    <h3>DESIGN TOOLS</h3>
+                    <ul>
+                        <li><div class = "li-subject">Adobe Illustrator:</div>
+                            Used for designing posters, flyers, etc.
+                        </li>
+                        <li><div class = "li-subject">Adobe InDesign:</div>
+                            Used for complicated text formatting.
+                        </li>
+                        <li><div class = "li-subject">Figma:</div>
+                            For prototyping and creating drafts of applications' appearances.
+                        </li>
+                        <li><div class = "li-subject">Krita:</div>
+                            For illustrative purposes.
+                        </li>
+                        <li><div class = "li-subject">Adobe Photoshop:</div>
+                            For illustrative purposes.
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-
-        <main class = "grid-about">
-            <article>
-                <p>Hello, my name is Ethan Nguyen.  I'm a second-year CS student at the University of Colorado Boulder.</p>
-                <p>I'm also a hobbyist doodler who likes to make cartoons of things sometimes.</p>
-                <h3>HISTORY</h3>
-                <ol>
-                    <li>Student at University of Colorado Boulder</li>
-                    <li>Former <a href = "https://www.colorado.edu/program/learningassistant/">learning assistant</a> for Intro to Computer Science at CU</li>
-                </ol>
-            </article>
-            <img class = "about-decoration" src = "img/buttons/about.png" alt = "decorative image">
-        </main>
     </body>
 </html>

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Source Code Pro|Nunito');
+
+.card-sub{
+    font-family: 'Source Code Pro', sans-serif;
+    color: white;
+    font-size: 0.75rem;
+}
+.card-sub-label{
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline;
+    border-left: 4px solid var(--brown);
+    padding-left: 1rem;
+}
+.card-sub-text{
+    display: inline;
+}
+.card-header{
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+.card-p{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-img-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+@media only screen and (orientation: landscape){
+    .card{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        column-gap: 1rem;
+        margin-top: 1rem;
+    }
+    .card-thumb{
+        display: flex;
+        align-items: center;
+    }
+    .card-thumb img{
+        width: 100%;
+    }
+}
+
+@media only screen and (orientation: portrait){
+    .card-thumb img{
+        width: 100%;
+    }
+    .card-header{
+        margin-top: 1rem;
+    }
+    .card{
+        margin-bottom: 4rem;
+    }
+}
